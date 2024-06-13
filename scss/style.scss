@@ -1,0 +1,31 @@
+/*
+Theme Name: Bystra
+Theme URI: https://envyus.com.au/
+Author: Your Name
+Author URI: https://envyus.com.au/
+Description: Je bystrá.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: minimal, simple, responsive
+Text Domain: bystra
+*/
+
+@import 'colours';
+@import 'fonts';
+@import 'vendors';
+@import 'swiper';
+@import 'fx';
+@import 'layout';
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+*:focus {
+    outline: none !important;
+}
