@@ -70,3 +70,105 @@ function register_my_menus()
     ));
 }
 add_action('init', 'register_my_menus');
+
+
+
+
+/*
+ ██████ ██████  ████████
+██      ██   ██    ██
+██      ██████     ██
+██      ██         ██
+ ██████ ██         ██
+
+
+*/
+
+function create_store_post_type() {
+    $labels = array(
+        'name' => __( 'Stores' ),
+        'singular_name' => __( 'Store' ),
+        'menu_name' => __( 'Stores' ),
+        'all_items' => __( 'All Stores' ),
+        'add_new' => __( 'Add New' ),
+        'add_new_item' => __( 'Add New Store' ),
+        'edit_item' => __( 'Edit Store' ),
+        'new_item' => __( 'New Store' ),
+        'view_item' => __( 'View Store' ),
+        'search_items' => __( 'Search Stores' ),
+        'not_found' => __( 'No stores found' ),
+        'not_found_in_trash' => __( 'No stores found in trash' ),
+        'parent_item_colon' => __( 'Parent Store:' ),
+        'featured_image' => __( 'Featured Image' ),
+        'set_featured_image' => __( 'Set featured image' ),
+        'remove_featured_image' => __( 'Remove featured image' ),
+        'use_featured_image' => __( 'Use as featured image' ),
+        'archives' => __( 'Store archives' ),
+        'insert_into_item' => __( 'Insert into store' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this store' ),
+        'filter_items_list' => __( 'Filter stores list' ),
+        'items_list_navigation' => __( 'Stores list navigation' ),
+        'items_list' => __( 'Stores list' ),
+        'attributes' => __( 'Store attributes' ),
+        'name_admin_bar' => __( 'Store' ),
+        'item_published' => __( 'Store published' ),
+        'item_published_privately' => __( 'Store published privately' ),
+        'item_reverted_to_draft' => __( 'Store reverted to draft' ),
+        'item_scheduled' => __( 'Store scheduled' ),
+        'item_updated' => __( 'Store updated' ),
+    );
+
+    $args = array(
+        'label' => __( 'Store' ),
+        'description' => __( 'Stores' ),
+        'labels' => $labels,
+        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-store',
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'hierarchical' => false,
+        'exclude_from_search' => false,
+        'show_in_rest' => true,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+    );
+
+    register_post_type( 'store', $args );
+}
+add_action( 'init', 'create_store_post_type', 0 );
+
+
+function create_section_taxonomy() {
+    $labels = array(
+        'name' => __( 'Sections' ),
+        'singular_name' => __( 'Section' ),
+        'search_items' => __( 'Search Sections' ),
+        'all_items' => __( 'All Sections' ),
+        'parent_item' => __( 'Parent Section' ),
+        'parent_item_colon' => __( 'Parent Section:' ),
+        'edit_item' => __( 'Edit Section' ),
+        'update_item' => __( 'Update Section' ),
+        'add_new_item' => __( 'Add New Section' ),
+        'new_item_name' => __( 'New Section Name' ),
+        'menu_name' => __( 'Sections' ),
+    );
+
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'section' ),
+        'show_in_rest' => true,
+    );
+
+    register_taxonomy( 'section', 'store', $args );
+}
+add_action( 'init', 'create_section_taxonomy', 0 );
