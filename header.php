@@ -10,28 +10,35 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header>
+    <header class="bg-black">
+
+        <div class="container-fluid bg-white">
+            <div class="container d-flex  justify-content-end">
+                [superscript ctas]
+            </div>
+        </div>
+
         <!-- bootstrap menu integration -->
-        <nav id="navbar-fx" class="navbar navbar-expand-sm justify-content-center">
+        <nav id="navbar-fx" class="navbar sticky-bottom navbar-expand-sm justify-content-center" data-bs-theme="dark">
 
 
-            <div class="container bg-warning p-0">
+            <div class="container p-0">
 
-                <div class="row bg-danger w-100 m-0">
+                <div class="row w-100 m-0">
 
-                    <div class="col-4 bg-light">
+                    <div class="col-4">
                         <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>">
-                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-dark.png" class="img-fluid logo-constraint" alt="">
+                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint" alt="">
                         </a>
                     </div>
 
-                    <div class="col bg-success d-flex justify-content-end">
+                    <div class="col d-flex justify-content-end">
                         <button class="navbar-toggler first-button" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                             <div class="animated-icon1"><span></span><span></span><span></span></div>
                         </button>
                     </div>
 
-                    <div class="col-6 collapse navbar-collapse bg-info" id="main-menu">
+                    <div class="col-6 collapse navbar-collapse" id="main-menu">
 
                         <?php
                         wp_nav_menu(array(

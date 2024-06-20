@@ -25,6 +25,14 @@
       "oAP" : "\/footer.php",
       "oF" : 0
     },
+    "\/front-page.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/front-page.php",
+      "oF" : 0
+    },
     "\/functions.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -67,6 +75,14 @@
       "q" : 90,
       "rq" : 75
     },
+    "\/inc\/flexible-content.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/inc\/flexible-content.php",
+      "oF" : 0
+    },
     "\/index.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -96,6 +112,14 @@
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
+    },
+    "\/page-directory.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/page-directory.php",
+      "oF" : 0
     },
     "\/README.md" : {
       "cB" : 0,
@@ -157,7 +181,7 @@
       "oA" : 0,
       "oAP" : "\/style.css",
       "oF" : 2,
-      "oS" : 1,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },

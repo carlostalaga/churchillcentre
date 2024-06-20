@@ -172,3 +172,110 @@ function create_section_taxonomy() {
     register_taxonomy( 'section', 'store', $args );
 }
 add_action( 'init', 'create_section_taxonomy', 0 );
+
+
+function create_days_taxonomy() {
+    $labels = array(
+        'name' => __( 'Days' ),
+        'singular_name' => __( 'Day' ),
+        'search_items' => __( 'Search Days' ),
+        'all_items' => __( 'All Days' ),
+        'parent_item' => __( 'Parent Day' ),
+        'parent_item_colon' => __( 'Parent Day:' ),
+        'edit_item' => __( 'Edit Day' ),
+        'update_item' => __( 'Update Day' ),
+        'add_new_item' => __( 'Add New Day' ),
+        'new_item_name' => __( 'New Day Name' ),
+        'menu_name' => __( 'Days' ),
+    );
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => false,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'day' ),
+        'show_in_rest' => true,
+    );
+    register_taxonomy( 'days', 'store', $args );
+}
+add_action( 'init', 'create_days_taxonomy', 0 );
+
+
+
+
+/*
+████████ ██   ██ ██    ██ ███    ███ ██████  ███████
+   ██    ██   ██ ██    ██ ████  ████ ██   ██ ██
+   ██    ███████ ██    ██ ██ ████ ██ ██████  ███████
+   ██    ██   ██ ██    ██ ██  ██  ██ ██   ██      ██
+   ██    ██   ██  ██████  ██      ██ ██████  ███████
+
+
+*/
+
+add_theme_support('post-thumbnails');
+
+function custom_thumbs()
+{
+    add_image_size('slider1920', 1920, 648, array(
+        'center',
+        'center'
+    ));
+    // add_image_size('slider1600', 1600, 540, array(
+    //     'center',
+    //     'center'
+    // ));
+    add_image_size('1080p', 1920, 1080, array(
+        'center',
+        'center'
+    ));
+    add_image_size('720p', 1280, 720, array(
+        'center',
+        'center'
+    ));
+    // add_image_size('3-2r1200', 1200, 800, array(
+    //     'center',
+    //     'center'
+    // ));
+    add_image_size('4-3r960', 960, 720, array(
+        'center',
+        'center'
+    ));
+    add_image_size('16-9r720', 720, 405, array(
+        'center',
+        'center'
+    ));
+    add_image_size('576sm', 576, 576, array(
+        'center',
+        'center'
+    ));
+    add_image_size('4-3r576', 576, 432, array(
+        'center',
+        'center'
+    ));
+    add_image_size('4-3r320', 320, 240, array(
+        'center',
+        'center'        
+    ));
+
+}
+add_action('after_setup_theme', 'custom_thumbs');
+
+
+
+
+
+
+
+/*
+
+ ██████  ██    ██ ████████ ███████ ███    ██ ██████  ███████ ██████   ██████       ██████  ██    ██ ████████
+██       ██    ██    ██    ██      ████   ██ ██   ██ ██      ██   ██ ██           ██    ██ ██    ██    ██
+██   ███ ██    ██    ██    █████   ██ ██  ██ ██████  █████   ██████  ██   ███     ██    ██ ██    ██    ██
+██    ██ ██    ██    ██    ██      ██  ██ ██ ██   ██ ██      ██   ██ ██    ██     ██    ██ ██    ██    ██
+ ██████   ██████     ██    ███████ ██   ████ ██████  ███████ ██   ██  ██████       ██████   ██████     ██
+
+
+*/
+add_filter('use_block_editor_for_post', '__return_false');
