@@ -1,0 +1,111 @@
+{
+    "key": "group_6673bcbaceb87",
+    "title": "Store CPT",
+    "fields": [
+        {
+            "key": "field_6673c00b8072d",
+            "label": "Open Hours",
+            "name": "open_hours",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6673bcbad0ff3",
+                    "label": "Open days",
+                    "name": "open_days",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "days",
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 0,
+                    "return_format": "object",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "bidirectional": 0,
+                    "multiple": 0,
+                    "bidirectional_target": [],
+                    "parent_repeater": "field_6673c00b8072d"
+                },
+                {
+                    "key": "field_6673c0cf760e0",
+                    "label": "Open from",
+                    "name": "open_from",
+                    "aria-label": "",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a",
+                    "parent_repeater": "field_6673c00b8072d"
+                },
+                {
+                    "key": "field_6673c10a760e1",
+                    "label": "Open to",
+                    "name": "open_to",
+                    "aria-label": "",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a",
+                    "parent_repeater": "field_6673c00b8072d"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "store"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1718868548
+}

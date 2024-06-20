@@ -16,7 +16,7 @@
 
                 <div class="col-3">
                     <div class="card-header-custom text-center text-white">
-                        <h2><?php the_title(); ?></h2>
+
                     </div>
                     <div class="card-body-custom text-center py-5  bg-danger">
                         <?php if (has_post_thumbnail()) : ?>
@@ -33,7 +33,7 @@
 
                 <div class="col-6 offset-1">
                     <div class="mb-3">
-                        <h1><?php the_title(); ?></h1>
+                        <h1 class="text-uppercase fw-bold"><?php the_title(); ?></h1>
                     </div>
                     <div class="mb-3">
                         Bing Boy is an exciting food outlet offering a thin wheat
@@ -41,7 +41,11 @@
                         popular food made in the streets of China for centuries,
                         now made hot and fresh at Bing Boy.
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 py-4" style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
+
+                        <div class="my-3">
+                            <h3 class="text-uppercase fw-bold">Open Hours</h3>
+                        </div>
 
                         <?php if (have_rows('open_hours')) : ?>
                         <div class="mb-3">
