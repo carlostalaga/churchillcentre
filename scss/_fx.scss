@@ -1,40 +1,4 @@
 /*
- ██████  █████  ██████  ██████  ███████
-██      ██   ██ ██   ██ ██   ██ ██
-██      ███████ ██████  ██   ██ ███████
-██      ██   ██ ██   ██ ██   ██      ██
- ██████ ██   ██ ██   ██ ██████  ███████
-
-
-*/
-.img-darken {
-    filter: brightness(88%);
-    /* Decrease brightness to 88%, approximating a 12% darkening effect */
-}
-
-.text-above-image {
-    z-index: 2;
-}
-
-.img-darken {
-    z-index: 1;
-}
-
-.card-header-custom {
-    border-top-left-radius: 1.5rem;
-    border: 1px solid#000;
-    background-color: #000;
-    padding: 0.8rem 0.5rem 0.4rem 0.5rem;
-}
-
-.card-body-custom {
-    border-radius: 0rem 0rem 1.5rem 1.5rem;
-    border: 1px solid#000;
-    padding: 0.8rem 0.5rem 0.4rem 0.5rem;
-}
-
-
-/*
 ████████  ██████   ██████   ██████  ██      ███████
    ██    ██    ██ ██       ██       ██      ██
    ██    ██    ██ ██   ███ ██   ███ ██      █████
