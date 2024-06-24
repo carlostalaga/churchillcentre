@@ -31,7 +31,12 @@
                             ?>
                         </div>
                         <div>
-                            [block]
+                            <h3>Opening Hours</h3>
+                            <?php
+                            if (get_field('open_hours', 'option')) :  
+                                display_grouped_open_hours_using_options(true);
+                            endif;
+                            ?>
                         </div>
                     </div>
                     <div class="col col-md-6 col-lg-3 bg-dark text-black">
