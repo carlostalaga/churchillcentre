@@ -22,3 +22,22 @@ jQuery(document).ready(function () {
         jQuery('.animated-icon3').toggleClass('open');
     });
 });
+
+
+/*
+███    ███  █████  ████████  ██████ ██   ██ ██   ██ ███████ ██  ██████  ██   ██ ████████
+████  ████ ██   ██    ██    ██      ██   ██ ██   ██ ██      ██ ██       ██   ██    ██
+██ ████ ██ ███████    ██    ██      ███████ ███████ █████   ██ ██   ███ ███████    ██
+██  ██  ██ ██   ██    ██    ██      ██   ██ ██   ██ ██      ██ ██    ██ ██   ██    ██
+██      ██ ██   ██    ██     ██████ ██   ██ ██   ██ ███████ ██  ██████  ██   ██    ██
+
+
+*/
+jQuery(document).ready(function ($) {
+    // $() will work as an alias for jQuery() inside of this function
+
+    $(document).ready(function () {
+        $('.fosforos').matchHeight();
+    })
+
+});

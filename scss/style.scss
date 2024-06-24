@@ -81,3 +81,71 @@ html {
     border-top: 2px solid #000;
     border-bottom: 2px solid #000;
 }
+
+
+/*
+██████   █████   ██████  ██ ███    ██  █████  ████████ ██  ██████  ███    ██
+██   ██ ██   ██ ██       ██ ████   ██ ██   ██    ██    ██ ██    ██ ████   ██
+██████  ███████ ██   ███ ██ ██ ██  ██ ███████    ██    ██ ██    ██ ██ ██  ██
+██      ██   ██ ██    ██ ██ ██  ██ ██ ██   ██    ██    ██ ██    ██ ██  ██ ██
+██      ██   ██  ██████  ██ ██   ████ ██   ██    ██    ██  ██████  ██   ████
+
+
+*/
+/* Pagination Styling */
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #fcfcfc;
+    // border: 1px solid #dee2e6;
+    color: #000;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #000;
+    color: #ffffff;
+}
+
+/* Active page styling */
+.pagination .current {
+    margin: 0 5px;
+    padding: 5px 10px;
+
+    background-color: #000;
+    color: #ffffff;
+    border-color: #000;
+}
+
+
+
+
+// Common hover styles for both "Prev" and "Next" links
+.pagination a:hover {
+    background-color: #000; // Example hover background color
+    color: #fff; // Example hover text color
+}
+
+// Targeting the "Prev" link specifically
+.pagination a:has(> .fas.fa-chevron-left) {
+    background-color: #fff; // Example style
+    color: #000; // Example style
+
+    // Hover styles specific to "Prev" link, if needed
+    &:hover {
+        background-color: #000; // Example hover background color
+        color: #fff; // Example hover text color
+    }
+}
+
+// Targeting the "Next" link specifically
+.pagination a:has(> .fas.fa-chevron-right) {
+    background-color: #fff; // Example style
+    color: #000; // Example style
+
+    // Hover styles specific to "Next" link, if needed
+    &:hover {
+        background-color: #000; // Example hover background color
+        color: #fff; // Example hover text color
+    }
+}

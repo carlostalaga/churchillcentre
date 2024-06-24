@@ -279,3 +279,43 @@ add_action('after_setup_theme', 'custom_thumbs');
 
 */
 add_filter('use_block_editor_for_post', '__return_false');
+
+
+
+/*
+
+███████╗██╗  ██╗ ██████╗███████╗██████╗ ██████╗ ████████╗
+██╔════╝╚██╗██╔╝██╔════╝██╔════╝██╔══██╗██╔══██╗╚══██╔══╝
+█████╗   ╚███╔╝ ██║     █████╗  ██████╔╝██████╔╝   ██║
+██╔══╝   ██╔██╗ ██║     ██╔══╝  ██╔══██╗██╔═══╝    ██║
+███████╗██╔╝ ██╗╚██████╗███████╗██║  ██║██║        ██║
+╚══════╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝        ╚═╝
+
+Changing excerpt lenght */
+
+// Define a function to generate a custom excerpt
+function get_excerpt($limit, $source = null) {
+    global $post; // Access the global $post object to get current post's ID
+
+    // Choose the source of the excerpt based on the $source parameter
+    $excerpt = $source == "content" ? get_the_content() : get_the_excerpt();
+
+    // Remove shortcodes and square bracketed text which might be shortcodes or block markers
+    $excerpt = preg_replace(" (\[.*?\])", '', $excerpt);
+
+    // Strip shortcodes and HTML tags to ensure clean text
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+
+    // Trim the excerpt to the specified $limit ensuring it ends at a complete word
+    $excerpt = mb_substr($excerpt, 0, $limit);
+    $excerpt = mb_substr($excerpt, 0, mb_strripos($excerpt, " "));
+
+    // Normalize whitespace to a single space between words
+    $excerpt = trim(preg_replace('/\s+/', ' ', $excerpt));
+
+    // Append a "read more" link to the excerpt
+    $excerpt .= '<a href="'.get_permalink($post->ID).'"> ... </a>';
+
+    return $excerpt; // Return the final excerpt
+}

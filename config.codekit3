@@ -25,6 +25,22 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/acf-json\/group_6678ceb7becfe.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/acf-json\/group_6678ceb7becfe-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/acf-json\/ui_options_page_6678cde21f337.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/acf-json\/ui_options_page_6678cde21f337-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
     "\/bs533-navwalker.php" : {
       "cB" : 0,
       "ft" : 8192,

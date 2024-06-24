@@ -10,24 +10,18 @@ Template Name: Directory Page
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
-
     <?php 
     /* Flexible Content */
     include get_theme_file_path('/inc/flexible-content.php'); 
     ?>
 
-
-
     <?php 
     /*
-
     ███████ ███████  █████  ██████   ██████ ██   ██        ██        ███████ ██ ██      ████████ ███████ ██████
     ██      ██      ██   ██ ██   ██ ██      ██   ██        ██        ██      ██ ██         ██    ██      ██   ██
     ███████ █████   ███████ ██████  ██      ███████     ████████     █████   ██ ██         ██    █████   ██████
-        ██ ██      ██   ██ ██   ██ ██      ██   ██     ██  ██       ██      ██ ██         ██    ██      ██   ██
+         ██ ██      ██   ██ ██   ██ ██      ██   ██     ██  ██       ██      ██ ██         ██    ██      ██   ██
     ███████ ███████ ██   ██ ██   ██  ██████ ██   ██     ██████       ██      ██ ███████    ██    ███████ ██   ██
-
 
     */
     ?>
@@ -44,9 +38,7 @@ Template Name: Directory Page
         <div class="container">
             <div class="row row-cols-md-2 row-cols-lg-3 g-5 d-flex justify-content-center">
                 <?php
-
-
-                $args = array('post_type' => 'store');
+                $args = array('post_type' => 'store', 'paged' => get_query_var('paged') ? get_query_var('paged') : 1);
                 $args['search_filter_id'] = 91;
                 $stores = new WP_Query($args);
 
@@ -55,11 +47,15 @@ Template Name: Directory Page
                         $stores->the_post();
                         ?>
                 <div class="col">
-                    <div class="m-3">
-                        <div class="card-header-custom text-center text-white">
-                            <h2><?php the_title(); ?></h2>
+                    <div class="m-3 ">
+
+                        <div class="card-header-custom text-center text-white fosforos d-flex justify-content-center align-items-center">
+                            <div>
+                                <h2><?php the_title(); ?></h2>
+                            </div>
                         </div>
-                        <div class="card-body-custom text-center py-5  bg-danger">
+
+                        <div class="card-body-custom text-center py-5 px-5">
                             <?php if (has_post_thumbnail()) : ?>
                             <div class="featured-image pb-5">
                                 <?php the_post_thumbnail('4-3r320', ['class' => 'img-fluid thumb-cool']); ?>
@@ -69,12 +65,14 @@ Template Name: Directory Page
                                 <img src="https://via.placeholder.com/320x240" alt="Placeholder Image" class="img-fluid">
                             </div>
                             <?php endif; ?>
-                            <div class="text-start pb-5 px-5">
-                                To molorest venis quiscid ut
-                                fugiam dolupta quis accum
-                                ra voluptaqui que vit volupta
-                                turiossimus dere licabo. Natio
-                                id ex experum faccus eos....
+                            <div class="text-start pb-5">
+                                <?php
+                                    if ( get_the_content() ) {
+                                        echo get_excerpt(120, 'content');
+                                    } else {
+                                        echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
+                                    }
+                                ?>
                             </div>
                             <div class="w-100">
                                 <a class="btn btn-dark rounded-pill text-uppercase" href="<?php echo esc_url( get_permalink() ); ?>">
@@ -87,14 +85,37 @@ Template Name: Directory Page
                 <?php
                     }
                     wp_reset_postdata();
+                } else {
+                    echo '<p>No stores found.</p>';
                 }
                 ?>
             </div>
         </div>
     </div>
 
-
-
+    <!-- Pagination -->
+    <div class="container-fluid">
+        <div class="container my-5 py-5">
+            <div class="pagination d-flex justify-content-center">
+                <?php 
+                echo paginate_links(array(
+                    'total' => $stores->max_num_pages,
+                    'current' => max(1, get_query_var('paged')),
+                    'format' => '?paged=%#%',
+                    'show_all' => false,
+                    'type' => 'plain',
+                    'end_size' => 2,
+                    'mid_size' => 2,
+                    'prev_next' => true,
+                    'prev_text' => __('<i class="fas fa-chevron-left"></i>'),
+                    'next_text' => __('<i class="fas fa-chevron-right"></i>'),
+                    'add_args' => false,
+                    'add_fragment' => '',
+                ));
+                ?>
+            </div>
+        </div>
+    </div>
 
 </article>
 

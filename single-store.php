@@ -29,25 +29,33 @@
                         </div>
                         <?php endif; ?>
                         <div class="px-5  text-white">
-                            <h3 class="text-uppercase">Contact</h3>
-                            <div class="mb-5">
-                                PH: <?php echo get_field('phone'); ?>
+                            <h3 class="text-uppercase mb-5">Contact</h3>
+
+                            <?php 
+                            $phone = get_field('phone'); 
+                            if ($phone):
+                            ?>
+                            <div class="">
+                                PH: <?php echo $phone; ?>
                             </div>
+                            <?php endif; ?>
 
 
                             <?php 
-                            $website = get_sub_field('website');
+                            $website = get_field('website');
                             if( $website ): 
                                 $website_url = $website['url'];
                                 $website_title = $website['title'];
                                 $website_target = $website['target'] ? $website['target'] : '_self';
                             endif;
                             ?>
-                            <div class="text-center">
+                            <?php if ($website): ?>
+                            <div class="text-center mt-5">
                                 <a class="btn btn-light rounded-pill text-uppercase" href="<?php echo $website_url; ?>">
                                     VISIT&nbsp;WEBSITE
                                 </a>
                             </div>
+                            <?php endif; ?>
 
 
                         </div>
@@ -107,7 +115,7 @@
 
                     */
                     ?>
-                    <div class="my-5 py-4 y-borders">
+                    <div id="open-hours" class="my-5 py-4 y-borders">
 
                         <div class="my-3">
                             <h3 class="text-uppercase fw-bold">Open Hours</h3>
