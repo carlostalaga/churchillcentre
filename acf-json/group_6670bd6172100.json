@@ -275,14 +275,14 @@
                 },
                 "layout_66723c38ced6e": {
                     "key": "layout_66723c38ced6e",
-                    "name": "ad_hoc_slider",
-                    "label": "Ad Hoc Slider",
+                    "name": "slider",
+                    "label": "Slider",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_66723c42ced70",
-                            "label": "Ad Hoc Slider Repeater",
-                            "name": "ad_hoc_slider_repeater",
+                            "label": "Slider Repeater",
+                            "name": "slider_repeater",
                             "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
@@ -436,5 +436,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718868529
+    "modified": 1719230728
 }

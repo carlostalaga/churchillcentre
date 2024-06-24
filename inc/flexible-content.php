@@ -212,121 +212,117 @@ elseif( get_row_layout() == 'cards' ):
 
 
 
-<?php /*
-
- █████╗ ██████╗     ██╗  ██╗ ██████╗  ██████╗
-██╔══██╗██╔══██╗    ██║  ██║██╔═══██╗██╔════╝
-███████║██║  ██║    ███████║██║   ██║██║
-██╔══██║██║  ██║    ██╔══██║██║   ██║██║
-██║  ██║██████╔╝    ██║  ██║╚██████╔╝╚██████╗
-╚═╝  ╚═╝╚═════╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝
-
-███████╗██╗     ██╗██████╗ ███████╗██████╗
-██╔════╝██║     ██║██╔══██╗██╔════╝██╔══██╗
-███████╗██║     ██║██║  ██║█████╗  ██████╔╝
-╚════██║██║     ██║██║  ██║██╔══╝  ██╔══██╗
-███████║███████╗██║██████╔╝███████╗██║  ██║
-╚══════╝╚══════╝╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝
-
+<?php
+/*
+███████ ██      ██ ██████  ███████ ██████
+██      ██      ██ ██   ██ ██      ██   ██
+███████ ██      ██ ██   ██ █████   ██████
+     ██ ██      ██ ██   ██ ██      ██   ██
+███████ ███████ ██ ██████  ███████ ██   ██
 */
-elseif( get_row_layout() == 'ad_hoc_slider' ):
+elseif( get_row_layout() == 'slider' ):
     // Do something...
 ?>
 
-<?php if( have_rows('ad_hoc_slider_repeater') ): ?>
-<div id="block-swiper-adhoc" class="swiper-container swiper-adhoc">
+<?php if (have_rows('slider_repeater')): ?>
+<div id="block-swiper-adhoc" class="swiper-container">
     <div class="swiper-wrapper">
-        <?php while( have_rows('ad_hoc_slider_repeater') ): the_row();
-            $video = get_sub_field('video');
-            $image = get_sub_field('image');
-            $image_url = $image['sizes']['slider'];
-            $headline = get_sub_field('headline');
-            $tagline = get_sub_field('tagline');
-            $adhoc_link = get_sub_field('adhoc_link');
-            $adhoc_link_name_white_part = get_sub_field('adhoc_link_name_white_part');
-            $adhoc_link_name_black_part = get_sub_field('adhoc_link_name_black_part');
-        // Do something...
-        ?>
-
-
+        <?php while (have_rows('slider_repeater')): the_row();
+                $video = get_sub_field('video');
+                $image = get_sub_field('image');
+                $image_url = $image['sizes']['slider1920'];
+                $headline = get_sub_field('headline');
+                $tagline = get_sub_field('tagline');
+                $adhoc_link = get_sub_field('adhoc_link');
+            ?>
         <div class="swiper-slide">
-
-
-
-
-            <div class="swiper-slide-cover bg-prussian" style="width: 100%; height: auto;">
-                <?php if($video): // Si hay un video definido, lo privilegia respecto a la imagen
-                ?>
-
-                <?php if( get_sub_field('adhoc_link')) { ?>
-                <a href="<?php echo $adhoc_link; ?>">
-                    <?php } ?>
-
+            <div class="swiper-slide-cover">
+                <?php if ($video): ?>
+                <?php if ($adhoc_link): ?><a href="<?php echo esc_url($adhoc_link); ?>"><?php endif; ?>
                     <video playsinline autoplay muted loop>
-                        <source src="<?php echo $video['url']; ?>" type="video/mp4">
+                        <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-
-                    <?php if( get_sub_field('adhoc_link')) { ?>
-                </a>
-                <?php } ?>
-
-
+                    <?php if ($adhoc_link): ?></a><?php endif; ?>
                 <?php else: ?>
+                <?php if ($adhoc_link): ?><a href="<?php echo esc_url($adhoc_link); ?>"><?php endif; ?>
+                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid">
+                    <?php if ($adhoc_link): ?></a><?php endif; ?>
+                <?php endif; ?>
 
-
-
-                <?php if( get_sub_field('adhoc_link')) { ?>
-                <a href="<?php echo $adhoc_link; ?>">
-                    <?php } ?>
-
-                    <img src="<?php echo $image_url; ?>" alt="<?php echo $image['alt']; ?>" class="img-fluid" />
-
-                    <?php if( get_sub_field('adhoc_link')) { ?>
-                </a>
-                <?php } ?>
-
-
+                <?php if ($headline || $tagline): ?>
+                <div class="swiper-slide-content">
+                    <?php if ($headline): ?><h2><?php echo esc_html($headline); ?></h2><?php endif; ?>
+                    <?php if ($tagline): ?><p><?php echo esc_html($tagline); ?></p><?php endif; ?>
+                </div>
                 <?php endif; ?>
             </div>
-
-
-
-
         </div>
-
-
         <?php endwhile; ?>
     </div>
 
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
 
-    <?php
-    else :
-    // Background image and content...
-    ?>
-
-    <div class="swiper-main bg-light d-flex flex-column justify-content-center align-items-center" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/port-noarlunga.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; z-index: 10;">
-
-        <div class="d-flex flex-column justify-content-center align-items-center" style="width: 100vw; height: 100%; z-index: 11; background-color: rgba(0,0,0,0.2);">
-
-            <div class="swiper-headline text-center text-white" style="text-shadow: 0px 0px 8px #000;">
-                <?php echo the_title(); ?>
-            </div>
-
-            <div class="swiper-description my-3 my-md-4 px-5 d-none d-md-block" style="text-shadow: 0px 0px 8px #000;">
-                <?php echo get_bloginfo( 'name' ); ?>
-            </div>
-
-        </div>
-
-    </div>
-
-    <?php
-    endif;
-    ?>
-
-
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>
+
+<!-- Initialize Swiper -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var swiper = new Swiper('#block-swiper-adhoc', {
+        loop: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
+});
+</script>
+
+<!-- Add some CSS for positioning -->
+<style>
+.swiper-container {
+    position: relative;
+}
+
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    bottom: 10px;
+    width: 44px;
+    height: 44px;
+    margin-top: 0;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+</style>
+
+<?php else: ?>
+<!-- No slides found -->
+<?php endif; ?>
 
 
 

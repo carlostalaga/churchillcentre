@@ -68,7 +68,7 @@ Template Name: Directory Page
                             <div class="text-start pb-5">
                                 <?php
                                     if ( get_the_content() ) {
-                                        echo get_excerpt(120, 'content');
+                                        echo get_excerpt(102, 'content');
                                     } else {
                                         echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
                                     }

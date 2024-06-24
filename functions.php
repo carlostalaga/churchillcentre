@@ -306,6 +306,14 @@ add_action('after_setup_theme', 'custom_thumbs');
 add_filter('use_block_editor_for_post', '__return_false');
 
 
+function remove_default_post_content_editor() {
+    remove_post_type_support('post', 'editor');
+    remove_post_type_support('page', 'editor');
+    //remove_post_type_support('store', 'editor');
+}
+add_action('init', 'remove_default_post_content_editor');
+
+
 
 
 /*
@@ -342,6 +350,11 @@ function get_excerpt($limit, $source = null) {
 
     return $excerpt; // Return the final excerpt
 }
+
+
+
+
+
 
 /*
  ██████  ██████   ██████  ██    ██ ██████  ███████ ██████
