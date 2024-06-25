@@ -88,14 +88,12 @@ if( have_rows('flexible_content') ):
 
 <?php
 /*
+ ██████  █████  ██████  ██████  ███████
+██      ██   ██ ██   ██ ██   ██ ██
+██      ███████ ██████  ██   ██ ███████
+██      ██   ██ ██   ██ ██   ██      ██
+ ██████ ██   ██ ██   ██ ██████  ███████
 
- ██████╗ █████╗ ██████╗ ██████╗ ███████╗
-██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝
-██║     ███████║██████╔╝██║  ██║███████╗
-██║     ██╔══██║██╔══██╗██║  ██║╚════██║
-╚██████╗██║  ██║██║  ██║██████╔╝███████║
- ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝
-                                                                                                       
 */
 elseif( get_row_layout() == 'cards' ):
     $card_columns = get_sub_field('card_columns');  
@@ -235,6 +233,9 @@ elseif( get_row_layout() == 'slider' ):
                 $tagline = get_sub_field('tagline');
                 $adhoc_link = get_sub_field('adhoc_link');
             ?>
+
+
+
         <div class="swiper-slide">
             <div class="swiper-slide-cover">
                 <?php if ($video): ?>
@@ -250,30 +251,48 @@ elseif( get_row_layout() == 'slider' ):
                     <?php if ($adhoc_link): ?></a><?php endif; ?>
                 <?php endif; ?>
 
-                <?php if ($headline || $tagline): ?>
-                <div class="swiper-slide-content">
-                    <?php if ($headline): ?><h2><?php echo esc_html($headline); ?></h2><?php endif; ?>
-                    <?php if ($tagline): ?><p><?php echo esc_html($tagline); ?></p><?php endif; ?>
-                </div>
-                <?php endif; ?>
+
             </div>
+
+
+            <?php if ($headline || $tagline): ?>
+            <div class="container-fluid" style="position: absolute;">
+                <div class="container">
+                    <div class="swiper-slide-content" style="background: rgba(0,0,0,0.1);">
+                        <div class="position-relative text-start" style="position: relative;">
+                            <?php if ($headline): ?><h2 class="text-white"><?php echo esc_html($headline); ?></h2><?php endif; ?>
+                            <?php if ($tagline): ?><p class="text-white"><?php echo esc_html($tagline); ?></p><?php endif; ?>
+
+                            <?php if (get_sub_field('display_logo')) : ?>
+                            <img src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint mb-3" alt="">
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
         </div>
         <?php endwhile; ?>
     </div>
 
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
 
-    <!-- Add Navigation -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
 </div>
-
+<!-- Include Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
     var swiper = new Swiper('#block-swiper-adhoc', {
-        loop: false,
+        loop: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -284,6 +303,10 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         scrollbar: {
             el: '.swiper-scrollbar',
+        },
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
         },
     });
 });
@@ -305,7 +328,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .swiper-button-next, .swiper-button-prev {
     position: absolute;
-    bottom: 10px;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for the button's height */
     width: 44px;
     height: 44px;
     margin-top: 0;
@@ -317,6 +341,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .swiper-button-prev {
     left: 10px;
+}
+
+/*  ensure that both videos and images within .swiper-slide-cover maintain the 1920x648 aspect ratio while covering the entire container area without losing their aspect ratios. The object-fit: cover; property is used to ensure the video or image covers the area completely, cropping it if necessary to maintain the aspect ratio. */
+.swiper-slide-cover {
+    position: relative;
+    width: 100%;
+    /* Maintain aspect ratio 1920x648 */
+    padding-top: 33.75%; /* (648 / 1920) * 100% */
+    overflow: hidden;
+}
+
+.swiper-slide-cover video,
+.swiper-slide-cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without losing aspect ratio */
+}
+
+
+.swiper-slide {
+    position: relative; /* This makes it the reference for its absolutely positioned children */
+    display: flex;
+    justify-content: center; /* This centers its children horizontally */
+    align-items: center; /* This centers its children vertically */
 }
 </style>
 

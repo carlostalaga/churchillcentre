@@ -28,7 +28,7 @@
 
                     <div class="col-4">
                         <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>">
-                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint" alt="">
+                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint my-3" alt="">
                         </a>
                     </div>
 

@@ -405,6 +405,27 @@
                                     },
                                     "return_format": "array",
                                     "parent_repeater": "field_66723c42ced70"
+                                },
+                                {
+                                    "key": "field_667a7adf7b999",
+                                    "label": "Display Logo",
+                                    "name": "display_logo",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1,
+                                    "parent_repeater": "field_66723c42ced70"
                                 }
                             ]
                         }
@@ -436,5 +457,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719230728
+    "modified": 1719302957
 }
