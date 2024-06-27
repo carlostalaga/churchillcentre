@@ -5,10 +5,10 @@
             <div class="container py-5">
                 <div class="row row cols-1-row cols-md-2">
                     <div class="col text-start">
-                        [Churchill <br> logo]
+                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-dark.png" class="img-fluid logo-constraint my-3" alt="Churchill Centre">
                     </div>
-                    <div class="col d-flex justify-content-end align-items-end">
-                        [Social media icons]
+                    <div class="col  d-flex align-items-end">
+                        <?php social_icons_lightmode(false); ?>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,10 @@
                         [vert menu]
                     </div>
                     <div class="col col-md-6 col-lg-4 bg-dark text-black">
-                        [mailchimp custom placeholders]
+                        <?php 
+                        /* Flexible Content */
+                        include get_theme_file_path('/inc/mailchimp-signup-form.php'); 
+                        ?>
                     </div>
 
                 </div>

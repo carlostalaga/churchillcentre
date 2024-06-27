@@ -10,6 +10,12 @@
     include get_theme_file_path('/inc/flexible-content.php'); 
     ?>
 
+    <?php if(is_page('stores-map')): ?>
+    <div>
+        <?php echo do_shortcode('[storemap]'); ?>
+    </div>
+    <?php endif; ?>
+
 </article>
 
 

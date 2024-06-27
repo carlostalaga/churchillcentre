@@ -228,32 +228,29 @@ elseif( get_row_layout() == 'slider' ):
         <?php while (have_rows('slider_repeater')): the_row();
                 $video = get_sub_field('video');
                 $image = get_sub_field('image');
-                $image_url = $image['sizes']['slider1920'];
+                    if ($image):
+                    $image_url = $image['sizes']['slider1920'];
+                    endif;
                 $headline = get_sub_field('headline');
                 $tagline = get_sub_field('tagline');
-                $adhoc_link = get_sub_field('adhoc_link');
+                $link = get_sub_field('link');
             ?>
-
-
 
         <div class="swiper-slide">
             <div class="swiper-slide-cover">
                 <?php if ($video): ?>
-                <?php if ($adhoc_link): ?><a href="<?php echo esc_url($adhoc_link); ?>"><?php endif; ?>
+                <?php if ($link && is_array($link)): ?><a href="<?php echo esc_url($link['url']); ?>" <?php echo $link['target'] ? 'target="' . esc_attr($link['target']) . '"' : ''; ?>><?php endif; ?>
                     <video playsinline autoplay muted loop>
                         <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <?php if ($adhoc_link): ?></a><?php endif; ?>
+                    <?php if ($link && is_array($link)): ?></a><?php endif; ?>
                 <?php else: ?>
-                <?php if ($adhoc_link): ?><a href="<?php echo esc_url($adhoc_link); ?>"><?php endif; ?>
+                <?php if ($link && is_array($link)): ?><a href="<?php echo esc_url($link['url']); ?>" <?php echo $link['target'] ? 'target="' . esc_attr($link['target']) . '"' : ''; ?>><?php endif; ?>
                     <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid">
-                    <?php if ($adhoc_link): ?></a><?php endif; ?>
+                    <?php if ($link && is_array($link)): ?></a><?php endif; ?>
                 <?php endif; ?>
-
-
             </div>
-
 
             <?php if ($headline || $tagline): ?>
             <div class="container-fluid" style="position: absolute;">
@@ -283,8 +280,6 @@ elseif( get_row_layout() == 'slider' ):
         </div>
         <?php endwhile; ?>
     </div>
-
-
 </div>
 <!-- Include Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

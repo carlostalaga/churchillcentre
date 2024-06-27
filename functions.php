@@ -8,7 +8,7 @@ function add_theme_scripts() {
     wp_enqueue_style('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css', array(), '5.3.3');
     wp_enqueue_style('swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css', array(), '11.0.5');
     wp_enqueue_style('slickcss', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), '1.9.0');
-    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', array(), '5.15.3');
+    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), '6.2.0');
     wp_enqueue_style('animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), '4.1.1');
     wp_enqueue_style('googlefonts', 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap', array(), '1.0');
     wp_enqueue_style('lightgallerycss', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css', array(), '2.7.2');
@@ -459,3 +459,16 @@ function get_excerpt($limit, $source = null) {
 
         This process groups open days by their time ranges, facilitating the desired output format.
         */ 
+
+
+
+/*
+███████  ██████   ██████ ██  █████  ██          ██  ██████  ██████  ███    ██ ███████
+██      ██    ██ ██      ██ ██   ██ ██          ██ ██      ██    ██ ████   ██ ██
+███████ ██    ██ ██      ██ ███████ ██          ██ ██      ██    ██ ██ ██  ██ ███████
+     ██ ██    ██ ██      ██ ██   ██ ██          ██ ██      ██    ██ ██  ██ ██      ██
+███████  ██████   ██████ ██ ██   ██ ███████     ██  ██████  ██████  ██   ████ ███████
+
+Include the social-icons.php file to have access to the social_icons_lightmode function.
+*/
+require_once get_template_directory() . '/inc/social-icons.php';

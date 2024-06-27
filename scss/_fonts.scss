@@ -20,3 +20,74 @@ body {
         font-size: 58.5%;
     }
 }
+
+
+
+/*
+███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████
+██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██
+█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████
+██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██
+██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████
+
+*/
+
+// Common styles for all icons
+// The `%` symbol in SCSS is used to define a placeholder selector. Placeholder selectors are a feature of Sass. They allow you to write CSS rules that won't be output to the compiled CSS file unless they are explicitly extended using the `@extend` directive. This mechanism is useful for defining a set of common styles that can be shared across multiple classes without duplicating code. Placeholder selectors help in keeping your stylesheets DRY (Don't Repeat Yourself) by allowing you to write a common set of styles once and apply them to various selectors as needed.
+%icon-common {
+    color: #000;
+    font-size: 2.7rem;
+    margin-right: 10px;
+    transition: color 0.4s, transform 0.4s;
+
+    &:hover {
+        color: #848484;
+        transform: translateY(1px);
+    }
+}
+
+// Apply common styles to all Font Awesome icons
+// Target all elements whose class attribute starts with "fa-"
+// and apply common icon styles to them by extending the %icon-common placeholder
+[class^="fa-"] {
+    @extend %icon-common;
+}
+
+// Specific styles for social icons in light mode
+#social-icons-lightmode {
+
+    .fa-brands,
+    .fa-solid {
+        color: #fff;
+
+        &:hover {
+            color: #f00;
+        }
+    }
+}
+
+// Special case for fa-expand
+.fa-expand {
+    font-size: 2.7rem;
+}
+
+// Social icons from the PHP function
+// Defines a map named $social-icons. In SCSS, a map is a collection of key-value pairs, and it's a feature that allows for more organized and manageable stylesheets, especially when dealing with related sets of values. Maps are particularly useful for theming, configuration settings, or, as shown here, grouping related data.
+$social-icons: (
+    envelope: "fa-solid fa-envelope",
+    facebook: "fa-brands fa-facebook-f",
+    twitter: "fa-brands fa-twitter",
+    instagram: "fa-brands fa-instagram",
+    linkedin: "fa-brands fa-linkedin-in"
+);
+
+// Generate styles for each social icon
+// Iterate over each key-value pair in the $social-icons map
+@each $name, $class in $social-icons {
+
+    // Dynamically generate a class selector based on the value of $class
+    .#{$class} {
+        // Extend the styles defined in the %icon-common placeholder to the dynamically generated class
+        @extend %icon-common;
+    }
+}

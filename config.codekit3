@@ -154,6 +154,22 @@
       "oAP" : "\/inc\/flexible-content.php",
       "oF" : 0
     },
+    "\/inc\/mailchimp-signup-form.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/inc\/mailchimp-signup-form.php",
+      "oF" : 0
+    },
+    "\/inc\/social-icons.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/inc\/social-icons.php",
+      "oF" : 0
+    },
     "\/index.php" : {
       "cB" : 0,
       "ft" : 8192,
