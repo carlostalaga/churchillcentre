@@ -39,11 +39,27 @@
                             ?>
                         </div>
                     </div>
+
                     <div class="col col-md-6 col-lg-3 bg-dark text-black">
-                        [map]
+
+                        <?php
+                        $google_map_iframe = get_field('google_map_iframe', 'options'); // Only needed for the conditional check, NOT to display the map. Check functions.php and main.js for the map display.
+                        if ($google_map_iframe) :
+                        ?>
+                        <div id="map-placeholder">
+                            <p>Loading map...</p>
+                        </div>
+                        <?php endif; ?>
                     </div>
-                    <div class="col col-md-6 col-lg-2">
-                        [vert menu]
+
+                    <div id="footer-menu" class="col col-md-6 col-lg-2">
+                        <?php /* Super Menu */
+                        wp_nav_menu( array(
+                            'menu' => 'footer-menu',
+                            'theme_location' => 'footer-menu',
+                            'fallback_cb'    => false
+                        ) );
+                        ?>
                     </div>
                     <div class="col col-md-6 col-lg-4 bg-dark text-black">
                         <?php 
@@ -54,11 +70,20 @@
 
                 </div>
 
-                <div class="row border-top border-white border-2 pt-3 pb-5">
-                    <div class="col col-md-6 text-center text-md-start">
+                <div class="row border-top border-white border-2 pt-3 pb-5" style="font-size: 1.5rem;">
+                    <div class="col col-md-6 col-lg-4 text-center text-md-start">
                         &copy; <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?>. All rights reserved.
                     </div>
-                    <div class="col col-md-6 text-center text-md-end">
+                    <div id="privacy-menu" class="col col-md-6 col-lg-4 d-flex justify-content-center">
+                        <?php /* Privacy Menu */
+                        wp_nav_menu( array(
+                            'menu' => 'privacy-menu',
+                            'theme_location' => 'privacy-menu',
+                            'fallback_cb'    => false,
+                        ) );
+                        ?>
+                    </div>
+                    <div class="col col-md-6 col-lg-4 text-center text-md-end">
                         <a href="https://envyus.com.au" target="blank" class="text-white">Site by EnvyUs Design</a>
                     </div>
                 </div>

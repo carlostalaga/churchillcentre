@@ -13,8 +13,14 @@
     <header class="bg-black">
 
         <div class="container-fluid bg-white">
-            <div class="container d-flex  justify-content-end">
-                [superscript ctas]
+            <div id="super-menu" class="container d-flex  justify-content-end">
+                <?php /* Super Menu */
+                wp_nav_menu( array(
+                    'menu' => 'super-menu',
+                    'theme_location' => 'super-menu',
+                    'fallback_cb'    => false
+                ) );
+                ?>
             </div>
         </div>
 

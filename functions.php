@@ -15,12 +15,15 @@ function add_theme_scripts() {
     wp_enqueue_style('lightgallerAutoplay', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-autoplay.min.css', array(), '2.7.2');
     wp_enqueue_style('style', get_stylesheet_uri(), array(), '1.0');
     
-    /* JS */
+    /* JS 
+     Version numbers are added to each enqueued file for cache busting.
+     The 'true' parameter is used to load JavaScript files in the footer.
+     Dependencies are specified for scripts that rely on other scripts.
+     */
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', array(), '3.6.0', true);
     wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js', array('jquery'), '2.9.3', true);
     wp_enqueue_script('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js', array('jquery'), '5.3.3', true);
-    /* Include Swiper JS New versions before the initialisation script // WordPress doesn't support ES modules out of the box when enqueueing */
     wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array('jquery'), '1.9.0', true);
     wp_enqueue_script('matchHeight', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js', array('jquery'), '0.7.2', true);
     wp_enqueue_script('lightgallery', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.umd.min.js', array('jquery'), '2.7.2', true);
@@ -29,12 +32,12 @@ function add_theme_scripts() {
     wp_enqueue_script('lightgallerypluginautoplay', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/autoplay/lg-autoplay.umd.min.js', array('lightgallery'), '2.7.2', true);
 
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0', true);
-    
-    /*
-     * Version numbers are added to each enqueued file for cache busting.
-     * The 'true' parameter is used to load JavaScript files in the footer.
-     * Dependencies are specified for scripts that rely on other scripts.
-     */
+    // Get the ACF field value
+    $iframe_code = get_field('google_map_iframe','options'); // Adjust 'google_map_iframe' to your ACF field name
+    // Localize the script with the iframe code
+    wp_localize_script('main', 'acfData', array(
+        'iframe_code' => $iframe_code,
+    ));
 }
 add_action('wp_enqueue_scripts', 'add_theme_scripts');
 
@@ -59,17 +62,41 @@ if (! file_exists(get_template_directory() . '/bs533-navwalker.php')) {
 }
 
 
-/* Menus Registration */
+
+
+
+
+/* 
+
+███    ███ ███████ ███    ██ ██    ██                        
+████  ████ ██      ████   ██ ██    ██                        
+██ ████ ██ █████   ██ ██  ██ ██    ██                        
+██  ██  ██ ██      ██  ██ ██ ██    ██                        
+██      ██ ███████ ██   ████  ██████                         
+                                                             
+                                                             
+██████  ███████  ██████  ██ ███████ ████████ ███████ ██████  
+██   ██ ██      ██       ██ ██         ██    ██      ██   ██ 
+██████  █████   ██   ███ ██ ███████    ██    █████   ██████  
+██   ██ ██      ██    ██ ██      ██    ██    ██      ██   ██ 
+██   ██ ███████  ██████  ██ ███████    ██    ███████ ██   ██ 
+                                                             
+ 
+*/
+
 function register_my_menus()
 {
     //add_filter( 'show_admin_bar', '__return_false' );
     register_nav_menus(array(
         'main-menu' => __('Main menu', 'broucek') ,
+        'super-menu' => __('Super Menu', 'broucek') ,
         'footer-menu' => __('Footer menu', 'broucek') ,
         'privacy-menu' => __('Privacy menu', 'broucek') ,
     ));
 }
 add_action('init', 'register_my_menus');
+
+
 
 
 

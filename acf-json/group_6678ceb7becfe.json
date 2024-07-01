@@ -190,8 +190,8 @@
         },
         {
             "key": "field_667e5465b9695",
-            "label": "Google Map Embed Code",
-            "name": "google_map_embed_code",
+            "label": "Google Map Iframe",
+            "name": "google_map_iframe",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -227,5 +227,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719555460
+    "modified": 1719812714
 }

@@ -34,6 +34,142 @@ html {
     max-width: 280px;
 }
 
+
+
+/*
+███    ███ ███████ ███    ██ ██    ██ ███████
+████  ████ ██      ████   ██ ██    ██ ██
+██ ████ ██ █████   ██ ██  ██ ██    ██ ███████
+██  ██  ██ ██      ██  ██ ██ ██    ██      ██
+██      ██ ███████ ██   ████  ██████  ███████
+
+
+*/
+
+/* Super Menu */
+#super-menu ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#super-menu li {
+    position: relative;
+    /* Needed for the separator positioning */
+    padding: 0 15px;
+}
+
+/* Add vertical line separator except for the last item */
+#super-menu li:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    /* Center it vertically */
+    transform: translateY(-50%);
+    /* Ensure it's centered regardless of line height */
+    color: #000000;
+}
+
+#super-menu a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+
+    &:link {
+        color: #000;
+    }
+
+    &:visited {
+        color: #000;
+    }
+
+    &:hover {
+        color: #FF0000;
+    }
+
+    &:active {
+        color: #FFA500;
+    }
+}
+
+
+/* Footer Menu */
+#footer-menu ul {
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer-menu li {
+    position: relative;
+    color: #fff;
+    padding: 0 15px;
+}
+
+#footer-menu a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+
+    &:link {
+        color: #ffffff;
+    }
+
+    &:visited {
+        color: #ffffff;
+    }
+
+    &:hover {
+        color: #FF0000;
+    }
+
+    &:active {
+        color: #FFA500;
+    }
+}
+
+
+/* privacy Menu */
+#privacy-menu ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#privacy-menu li {
+    position: relative;
+    /* Needed for the separator positioning */
+    padding: 0 9px;
+}
+
+#privacy-menu a {
+    text-decoration: none;
+    color: inherit;
+
+    &:link {
+        color: #ffffff;
+    }
+
+    &:visited {
+        color: #ffffff;
+    }
+
+    &:hover {
+        color: #FF0000;
+    }
+
+    &:active {
+        color: #FFA500;
+    }
+}
+
+
+
+
 /*
  ██████  █████  ██████  ██████  ███████
 ██      ██   ██ ██   ██ ██   ██ ██
