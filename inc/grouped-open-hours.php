@@ -1,4 +1,53 @@
 <?php
+/**
+ * Display grouped open hours from ACF repeater field.
+ *
+ * This function retrieves open hours data from an Advanced Custom Fields (ACF) repeater field,
+ * groups the hours by time range, and displays them in a formatted manner.
+ *
+ * @param bool $use_options Whether to use the 'option' parameter for ACF fields (default: true).
+ *
+ * @return void Outputs HTML directly.
+ *
+ * Usage examples:
+ * @example
+ * // To use with 'option' (e.g., on an options page):
+ * display_grouped_open_hours_using_options(true);
+ *
+ * @example
+ * // To use without 'option' (e.g., on a regular page/post):
+ * display_grouped_open_hours_using_options(false);
+ *
+ * Input Data Structure:
+ * The function expects an ACF repeater field named 'open_hours' with the following sub-fields:
+ * - open_days (Checkbox or Multi-select field)
+ * - open_from (Time field)
+ * - open_to (Time field)
+ *
+ * Example Input:
+ * Row 1: Open days = [Monday, Wednesday, Friday], Open from = "9:00 am", Open to = "5:30 pm"
+ * Row 2: Open days = [Thursday], Open from = "9:00 am", Open to = "9:00 pm"
+ *
+ * Process Overview:
+ * 1. Initialize an empty array to group hours.
+ * 2. Loop through each row of the 'open_hours' repeater field.
+ * 3. For each row, create a unique key using the time range.
+ * 4. Group days with the same time range together.
+ * 5. Output the grouped hours in a formatted manner.
+ *
+ * Resulting Data Structure:
+ * $grouped_hours = [
+ *     "9:00 am to 5:30 pm" => ["Monday", "Wednesday", "Friday"],
+ *     "9:00 am to 9:00 pm" => ["Thursday"]
+ * ];
+ *
+ * Key Methods:
+ * - have_rows(): ACF function to loop through repeater field rows.
+ * - get_sub_field(): ACF function to get the value of a sub-field.
+ * - isset(): PHP function to check if an array key exists.
+ * - implode(): PHP function to join array elements with a string.
+ */
+
     function display_grouped_open_hours_using_options($use_options = true) {        
         // The purpose of initialise a $grouped_hours empty array is to group all the open days that share the same opening and closing times.
         $grouped_hours = [];
@@ -40,56 +89,5 @@
 </p>
 
 <?php endforeach;
-    }
-    ?>
-
-
-<?php 
-// Usage examples:
-// To use with 'option':
-// display_grouped_open_hours_using_options(true);
-
-// To use without 'option':
-// display_grouped_open_hours_using_options(false);
-
-/*
-Example:
-
-Suppose you have the following input data:
-
-Row 1: Open days = [Monday, Wednesday, Friday], Open from = "9:00 am", Open to = "5:30 pm"
-Row 2: Open days = [Thursday], Open from = "9:00 am", Open to = "9:00 pm"
-
-The process would look like this:
-
-For Row 1:
-$time_range = "9:00 am to 5:30 pm"
-$grouped_hours["9:00 am to 5:30 pm"] is initialized as an empty array.
-Days [Monday, Wednesday, Friday] are added to $grouped_hours["9:00 am to 5:30 pm"].
-
-For Row 2:
-$time_range = "9:00 am to 9:00 pm"
-$grouped_hours["9:00 am to 9:00 pm"] is initialized as an empty array.
-Day [Thursday] is added to $grouped_hours["9:00 am to 9:00 pm"].
-
-After processing all rows, $grouped_hours would look like this:
-
-php
-
-$grouped_hours = [
-"9:00 am to 5:30 pm" => ["Monday", "Wednesday", "Friday"],
-"9:00 am to 9:00 pm" => ["Thursday"]
-];
-
-This structure allows us to easily output the grouped days and their corresponding time ranges, as each unique time range is a key, and the days are stored as an array under that key. This approach ensures that days with the same time range are grouped together and displayed accordingly.
-
-Summary of Actions and Methods:
-
-Create a unique key: Use concatenation to form a unique identifier for each time range.
-Check existence: Use isset to check if the key already exists in the array.
-Initialize if needed: If the key doesn't exist, initialize it with an empty array.
-Append to array: Use foreach to iterate over days and append each day's name to the appropriate array under the unique time range key.
-
-This process groups open days by their time ranges, facilitating the desired output format.
-*/
+}
 ?>
