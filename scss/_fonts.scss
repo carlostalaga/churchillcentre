@@ -1,11 +1,34 @@
+// Font family variables
+$text-prose: 'open-sans', sans-serif;
+$text-drama: 'montserrat', sans-serif;
+
+// Font weight variables
+$fw-prose-light: 300;
+$fw-prose-semibold: 600;
+$fw-drama-regular: 400;
+$fw-drama-bold: 700;
+
+// Mixin for font properties
+@mixin font($family, $weight, $style: normal) {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+
+
+
+
+
+
 html {
     font-size: 62.5%;
 }
 
 body {
-    //font-family: $prose;
+    @include font($text-prose, $fw-prose-light);
     font-size: 1.7rem;
-    color: #444;
+    color: $tinta;
 }
 
 
@@ -20,6 +43,64 @@ body {
         font-size: 58.5%;
     }
 }
+
+
+
+
+
+
+.text-drama {
+    @include font($text-drama, $fw-drama-bold);
+}
+
+.text-prose {
+    @include font($text-prose, $fw-prose-light);
+}
+
+.text-prose-semibold {
+    @include font($text-prose, $fw-prose-semibold);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+}
+
+h1 {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 4.5rem;
+}
+
+h2 {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 3.9rem;
+}
+
+h3 {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 3.3rem;
+}
+
+h4 {
+    @include font($text-prose, $fw-prose-semibold);
+    font-size: 2.7rem;
+}
+
+h5 {
+    @include font($text-prose, $fw-prose-semibold);
+    font-size: 2.4rem;
+}
+
+h6 {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 2.1rem;
+}
+
+
 
 
 

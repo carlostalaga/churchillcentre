@@ -29,7 +29,7 @@
                         </div>
                         <?php endif; ?>
                         <div class="px-5  text-white">
-                            <h3 class="text-uppercase mb-5">Contact</h3>
+                            <h5>Contact</h5>
 
                             <?php 
                             $phone = get_field('phone'); 
@@ -64,7 +64,7 @@
 
                 <div class="col-6 offset-1">
                     <div class="mb-3">
-                        <h1 class="text-uppercase fw-bold mb-3"><?php the_title(); ?></h1>
+                        <h1 class="mb-3"><?php the_title(); ?></h1>
                         <?php
                         $post_id = get_the_ID(); // Get the current post ID
                         $taxonomy_name = 'section';
@@ -90,7 +90,7 @@
                             }, $terms);
 
                             $terms_string = implode(', ', $term_names); // Join term names with a comma
-                            echo '<h5 class="text-uppercase mb-5">' . $terms_string . '</h5>';
+                            echo '<span class="text-prose-semibold text-uppercase mb-5">' . $terms_string . '</span>';
                         }
                         ?>
                     </div>
@@ -120,7 +120,7 @@
                     <div id="store-open-hours" class="my-5 py-4 y-borders">
 
                         <div class="my-3">
-                            <h3 class="text-uppercase fw-bold">Open Hours</h3>
+                            <h5>Open Hours</h5>
                         </div>
 
                         <?php 

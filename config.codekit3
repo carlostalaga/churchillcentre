@@ -154,6 +154,14 @@
       "oAP" : "\/inc\/flexible-content.php",
       "oF" : 0
     },
+    "\/inc\/grouped-open-hours.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/inc\/grouped-open-hours.php",
+      "oF" : 0
+    },
     "\/inc\/mailchimp-signup-form.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -235,6 +243,21 @@
       "rFN" : 0,
       "uCM" : 0
     },
+    "\/scss\/_colours.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 1,
+      "oA" : 1,
+      "oAP" : "\/scss\/_colours.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/scss\/_fonts.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -260,6 +283,21 @@
       "ma" : 1,
       "oA" : 1,
       "oAP" : "\/scss\/_fx.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/scss\/_vendors.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 1,
+      "oA" : 1,
+      "oAP" : "\/scss\/_vendors.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

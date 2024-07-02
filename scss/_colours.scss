@@ -1,0 +1,61 @@
+$amarillo: #fcb937;
+$tinta: #303030;
+$humo: #f3f4ee;
+$sombra: rgba(126, 126, 129, 0.6);
+$carbon: #202020;
+$negro: #000000;
+
+.amarillo,
+.text-amarillo {
+    color: $amarillo;
+}
+
+.bg-amarillo {
+    background-color: $amarillo;
+}
+
+
+.tinta,
+.text-tinta {
+    color: $tinta;
+}
+
+.bg-tinta {
+    background-color: $tinta;
+}
+
+.humo,
+.text-humo {
+    color: $humo;
+}
+
+.bg-humo {
+    background-color: $humo;
+}
+
+.sombra,
+.text-sombra {
+    color: $sombra;
+}
+
+.bg-sombra {
+    background-color: $sombra;
+}
+
+.carbon,
+.text-carbon {
+    color: $carbon;
+}
+
+.bg-carbon {
+    background-color: $carbon;
+}
+
+.negro,
+.text-negro {
+    color: $negro;
+}
+
+.bg-negro {
+    background-color: $negro;
+}

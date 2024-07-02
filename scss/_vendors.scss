@@ -1,0 +1,75 @@
+/*
+███    ███  █████  ██ ██       ██████ ██   ██ ██ ███    ███ ██████
+████  ████ ██   ██ ██ ██      ██      ██   ██ ██ ████  ████ ██   ██
+██ ████ ██ ███████ ██ ██      ██      ███████ ██ ██ ████ ██ ██████
+██  ██  ██ ██   ██ ██ ██      ██      ██   ██ ██ ██  ██  ██ ██
+██      ██ ██   ██ ██ ███████  ██████ ██   ██ ██ ██      ██ ██
+
+
+███████  ██████  ██████  ███    ███
+██      ██    ██ ██   ██ ████  ████
+█████   ██    ██ ██████  ██ ████ ██
+██      ██    ██ ██   ██ ██  ██  ██
+██       ██████  ██   ██ ██      ██
+
+
+*/
+
+/* Placeholder styles for various browsers */
+
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+    color: #000 !important;
+    // font-family: $prose;
+    opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+    color: #000 !important;
+    // font-family: $prose;
+}
+
+/* Microsoft Edge */
+::-ms-input-placeholder {
+    color: #000 !important;
+    // font-family: $prose;
+}
+
+/* Custom styles for Mailchimp input fields */
+.custom-mailchimp-input {
+    // background: transparent;
+    // border: 2px solid #fff;
+    // padding: 6px 12px;
+    // color: #fff;
+    // width: 186px;
+}
+
+.custom-mailchimp-input-wider {
+    background: #fbfbfb;
+    color: #000;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+
+    width: 320px;
+}
+
+/* Custom styles for Mailchimp button */
+.custom-mailchimp-button {
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    padding: 6px 18px;
+    // font-family: $epic;
+}
+
+/* Hover effect for Mailchimp button */
+.custom-mailchimp-button:hover {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 6px 12px;
+}

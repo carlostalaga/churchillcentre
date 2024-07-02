@@ -1,7 +1,7 @@
     <footer class="container-fluid p-0">
 
 
-        <div class="container-fluid bg-light text-black d-flex justify-content-center">
+        <div class="container-fluid bg-light text-negro d-flex justify-content-center">
             <div class="container py-5">
                 <div class="row row cols-1-row cols-md-2">
                     <div class="col text-start">
@@ -15,7 +15,7 @@
         </div>
 
 
-        <div class="container-fluid bg-black text-white d-flex justify-content-center">
+        <div class="container-fluid bg-negro text-white d-flex justify-content-center">
             <div class="container">
 
                 <div class="row g-5 py-5">
@@ -40,13 +40,13 @@
                         </div>
                     </div>
 
-                    <div class="col col-md-6 col-lg-3 bg-dark text-black">
+                    <div class="col col-md-6 col-lg-3 text-negro">
 
                         <?php
                         $google_map_iframe = get_field('google_map_iframe', 'options'); // Only needed for the conditional check, NOT to display the map. Check functions.php and main.js for the map display.
                         if ($google_map_iframe) :
                         ?>
-                        <div id="map-placeholder">
+                        <div id="map-placeholder" class="text-white">
                             <p>Loading map...</p>
                         </div>
                         <?php endif; ?>
@@ -61,7 +61,8 @@
                         ) );
                         ?>
                     </div>
-                    <div class="col col-md-6 col-lg-4 bg-dark text-black">
+                    <div class="col col-md-6 col-lg-4">
+                        <h3 class="text-white">SUBSCRIBE</h3>
                         <?php 
                         /* Flexible Content */
                         include get_theme_file_path('/inc/mailchimp-signup-form.php'); 
