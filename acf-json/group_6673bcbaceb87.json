@@ -123,6 +123,22 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_6683aaf8068cb",
+            "label": "Facebook",
+            "name": "facebook",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -143,5 +159,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718932604
+    "modified": 1719905103
 }

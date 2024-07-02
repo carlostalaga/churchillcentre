@@ -36,15 +36,6 @@
     // font-family: $prose;
 }
 
-/* Custom styles for Mailchimp input fields */
-.custom-mailchimp-input {
-    // background: transparent;
-    // border: 2px solid #fff;
-    // padding: 6px 12px;
-    // color: #fff;
-    // width: 186px;
-}
-
 .custom-mailchimp-input-wider {
     background: #fbfbfb;
     color: #000;
@@ -52,24 +43,23 @@
     border-radius: 3px;
     padding: 6px 12px;
     margin-bottom: 20px;
-
     width: 320px;
 }
 
 /* Custom styles for Mailchimp button */
 .custom-mailchimp-button {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.6rem;
+    color: #fff;
     background: transparent;
     border: 2px solid #fff;
-    border-radius: 30px;
-    color: #fff;
-    padding: 6px 18px;
-    // font-family: $epic;
+    border-radius: 25px;
+    padding: 6px 18px 3px 18px;
+    text-transform: uppercase
 }
 
 /* Hover effect for Mailchimp button */
 .custom-mailchimp-button:hover {
     background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 6px 12px;
+    color: #000;
 }

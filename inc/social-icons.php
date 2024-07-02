@@ -38,7 +38,7 @@ function social_icons_lightmode($lightmode = true, $is_option_page = true) {
         'linkedin' => ['icon' => 'fa-brands fa-linkedin-in', 'prefix' => '']
     ];
     ?>
-<div id="<?php echo esc_attr($mode_id); ?>" class="w-100 d-flex justify-content-start justify-content-md-end">
+<div id="<?php echo esc_attr($mode_id); ?>" class="d-flex">
     <!-- 
      * Loop through the $social_icons array and retrieve the corresponding field value using get_field() function.
      * If the field value exists, execute the code block inside the if statement.

@@ -1,13 +1,13 @@
     <footer class="container-fluid p-0">
 
 
-        <div class="container-fluid bg-light text-negro d-flex justify-content-center">
+        <div class="container-fluid bg-humo text-negro d-flex justify-content-center">
             <div class="container py-5">
                 <div class="row row cols-1-row cols-md-2">
                     <div class="col text-start">
                         <img src="<?php echo get_template_directory_uri() ?>/img/logo-dark.png" class="img-fluid logo-constraint my-3" alt="Churchill Centre">
                     </div>
-                    <div class="col  d-flex align-items-end">
+                    <div class="col  d-flex justify-content-end align-items-end">
                         <?php social_icons_lightmode(false); ?>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
 
                     <div class="col col-md-6 col-lg-3">
                         <div class="mb-5">
-                            <h3>Find Us</h3>
+                            <h6>Find Us</h6>
                             <?php 
                                 $address = get_field('address', 'option');
                                 if( $address ):
@@ -31,7 +31,7 @@
                             ?>
                         </div>
                         <div>
-                            <h3>Opening Hours</h3>
+                            <h6>Opening Hours</h6>
                             <?php
                             if (get_field('open_hours', 'option')) :  
                                 display_grouped_open_hours_using_options(true);
@@ -62,7 +62,7 @@
                         ?>
                     </div>
                     <div class="col col-md-6 col-lg-4">
-                        <h3 class="text-white">SUBSCRIBE</h3>
+                        <h6 class="text-white">SUBSCRIBE</h6>
                         <?php 
                         /* Flexible Content */
                         include get_theme_file_path('/inc/mailchimp-signup-form.php'); 

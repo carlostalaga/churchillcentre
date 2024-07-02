@@ -35,10 +35,14 @@
                             $phone = get_field('phone'); 
                             if ($phone):
                             ?>
-                            <div class="">
+                            <div class="mb-3">
                                 PH: <?php echo $phone; ?>
                             </div>
                             <?php endif; ?>
+
+                            <div class="mb-5">
+                                <?php social_icons_lightmode(true, false); ?>
+                            </div>
 
 
                             <?php 
@@ -50,8 +54,8 @@
                             endif;
                             ?>
                             <?php if ($website): ?>
-                            <div class="text-center mt-5">
-                                <a class="btn btn-light rounded-pill text-uppercase" href="<?php echo $website_url; ?>">
+                            <div class="text-center">
+                                <a class="btn btn-light" href="<?php echo $website_url; ?>">
                                     VISIT&nbsp;WEBSITE
                                 </a>
                             </div>
@@ -90,7 +94,9 @@
                             }, $terms);
 
                             $terms_string = implode(', ', $term_names); // Join term names with a comma
-                            echo '<span class="text-prose-semibold text-uppercase mb-5">' . $terms_string . '</span>';
+                            echo '<span class="text-prose-semibold text-uppercase mb-5
+                            
+                            ">' . $terms_string . '</span>';
                         }
                         ?>
                     </div>

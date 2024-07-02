@@ -44,6 +44,54 @@ html {
 
 */
 
+/* Main Menu */
+
+.menu-item {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.4rem;
+    margin-left: 9px;
+    text-transform: uppercase;
+}
+
+#main-menu a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+#main-menu a:visited {
+    color: #fff;
+    background-color: transparent;
+}
+
+#main-menu a:hover {
+    color: red !important;
+    text-decoration: none;
+}
+
+
+.dropdown-menu {
+    background-color: $negro;
+    border: 0;
+}
+
+.dropdown-item {
+    @include font($text-drama, $fw-drama-bold);
+    color: #fff !important;
+    background: transparent;
+    padding-right: 2rem;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+.dropdown-item.active,
+#main-menu .active {
+    color: $amarillo !important;
+    background-color: transparent !important;
+}
+
+
 /* Super Menu */
 #super-menu ul {
     display: flex;
@@ -53,20 +101,30 @@ html {
 }
 
 #super-menu li {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.4rem;
     position: relative;
     /* Needed for the separator positioning */
     padding: 0 15px;
 }
 
-/* Add vertical line separator except for the last item */
-#super-menu li:not(:last-child)::after {
+/* Add vertical line separator to the right of all items */
+#super-menu li::after {
     content: '|';
     position: absolute;
     right: 0;
     top: 50%;
-    /* Center it vertically */
     transform: translateY(-50%);
-    /* Ensure it's centered regardless of line height */
+    color: #000000;
+}
+
+/* Add vertical line separator to the left of the first item */
+#super-menu li:first-child::before {
+    content: '|';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     color: #000000;
 }
 
@@ -102,6 +160,7 @@ html {
 }
 
 #footer-menu li {
+    @include font($text-drama, $fw-drama-bold);
     position: relative;
     color: #fff;
     padding: 0 15px;
@@ -166,6 +225,51 @@ html {
 }
 
 
+
+/*
+██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
+██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
+██████   ██████     ██       ██     ██████  ██   ████ ███████
+
+
+*/
+.btn-light {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.6rem;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 6px 18px 3px 18px;
+    text-transform: uppercase
+}
+
+.btn-outline-light {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.6rem;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 6px 18px 3px 18px;
+    text-transform: uppercase
+}
+
+.btn-dark {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.6rem;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 6px 18px 3px 18px;
+    text-transform: uppercase
+}
+
+.btn-outline-dark {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.6rem;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 6px 18px 3px 18px;
+    text-transform: uppercase
+}
 
 
 /*

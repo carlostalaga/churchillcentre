@@ -49,10 +49,8 @@ Template Name: Directory Page
                 <div class="col">
                     <div class="m-3 ">
 
-                        <div class="card-header-custom text-center text-white fosforos d-flex justify-content-center align-items-center">
-                            <div>
-                                <h2><?php the_title(); ?></h2>
-                            </div>
+                        <div class="card-header-custom text-center text-white pt-3 fosforos d-flex justify-content-center align-items-center">
+                            <h3><?php the_title(); ?></h3>
                         </div>
 
                         <div class="card-body-custom text-center py-5 px-5">
@@ -75,7 +73,7 @@ Template Name: Directory Page
                                 ?>
                             </div>
                             <div class="w-100">
-                                <a class="btn btn-dark rounded-pill text-uppercase" href="<?php echo esc_url( get_permalink() ); ?>">
+                                <a class="btn btn-dark" href="<?php echo esc_url( get_permalink() ); ?>">
                                     LEARN&nbsp;MORE
                                 </a>
                             </div>
