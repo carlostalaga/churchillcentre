@@ -1,6 +1,8 @@
 // Font family variables
 $text-prose: 'open-sans', sans-serif;
 $text-drama: 'montserrat', sans-serif;
+$text-epic: 'relation-one', sans-serif;
+
 
 // Font weight variables
 $fw-prose-light: 300;
@@ -8,6 +10,8 @@ $fw-prose-regular: 400;
 $fw-prose-semibold: 600;
 $fw-drama-regular: 400;
 $fw-drama-bold: 700;
+$fw-epic-regular: 400;
+
 
 // Mixin for font properties
 @mixin font($family, $weight, $style: normal) {
@@ -17,10 +21,7 @@ $fw-drama-bold: 700;
 }
 
 
-
-
-
-
+// document styles
 html {
     font-size: 62.5%;
 }
@@ -30,7 +31,6 @@ body {
     font-size: 1.7rem;
     color: $tinta;
 }
-
 
 @media screen and (max-width: 768px) {
     html {
@@ -46,8 +46,13 @@ body {
 
 
 
+.text-prose-light {
+    @include font($text-prose, $fw-prose-light);
+}
 
-
+.text-prose-semibold {
+    @include font($text-prose, $fw-prose-semibold);
+}
 
 .text-drama {
     @include font($text-drama, $fw-drama-regular);
@@ -57,13 +62,10 @@ body {
     @include font($text-drama, $fw-drama-bold);
 }
 
-.text-prose-light {
-    @include font($text-prose, $fw-prose-light);
+.text-epic {
+    @include font($text-epic, $fw-epic-regular);
 }
 
-.text-prose-semibold {
-    @include font($text-prose, $fw-prose-semibold);
-}
 
 h1,
 h2,

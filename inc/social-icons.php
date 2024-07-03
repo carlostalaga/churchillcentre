@@ -39,27 +39,21 @@ function social_icons_lightmode($lightmode = true, $is_option_page = true) {
     ];
     ?>
 <div id="<?php echo esc_attr($mode_id); ?>" class="d-flex">
-    <!-- 
+    <?php /*
      * Loop through the $social_icons array and retrieve the corresponding field value using get_field() function.
      * If the field value exists, execute the code block inside the if statement.
-     -->
+    */ ?>
     <?php foreach ($social_icons as $key => $value): ?>
     <?php 
         // Use the $is_option_page parameter to determine how to call get_field()
         $field = $is_option_page ? get_field($key, 'option') : get_field($key);
+        // Expecting $field to be an array with 'url' and 'target' keys
+        $url = isset($field['url']) ? $field['url'] : '';
+        $target = isset($field['target']) ? $field['target'] : '_blank';
     ?>
-    <?php if ($field): ?>
-    <?php
-            // Ensure $field is a string. If it's an array, you might need to adjust this logic.
-            /**
-             * Converts an array to a string, separating the elements with a comma.
-             *
-             * @param mixed $field The value to be converted.
-             * @return string The converted string.
-             */
-            $field_value = is_array($field) ? implode(', ', $field) : $field;
-            ?>
-    <a target="_blank" class="text-light" href="<?php echo esc_url($value['prefix'] . $field_value); ?>">
+    <?php if ($url): ?>
+    <?php /* for full control on target replace _blank with <?php echo esc_attr($target); ?> */ ?>
+    <a target="_blank " class="text-light" href="<?php echo esc_url($value['prefix'] . $url); ?>">
         <i class="<?php echo esc_attr($value['icon']); ?> ms-2" aria-hidden="true"></i>
     </a>&nbsp;
     <?php endif; ?>
