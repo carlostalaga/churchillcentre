@@ -1,7 +1,7 @@
 // Font family variables
 $text-prose: 'open-sans', sans-serif;
 $text-drama: 'montserrat', sans-serif;
-$text-epic: 'relation-one', sans-serif;
+$text-epic: 'parkside', cursive;
 
 
 // Font weight variables
@@ -46,26 +46,6 @@ body {
 
 
 
-.text-prose-light {
-    @include font($text-prose, $fw-prose-light);
-}
-
-.text-prose-semibold {
-    @include font($text-prose, $fw-prose-semibold);
-}
-
-.text-drama {
-    @include font($text-drama, $fw-drama-regular);
-}
-
-.text-drama-bold {
-    @include font($text-drama, $fw-drama-bold);
-}
-
-.text-epic {
-    @include font($text-epic, $fw-epic-regular);
-}
-
 
 h1,
 h2,
@@ -104,6 +84,66 @@ h5 {
 h6 {
     @include font($text-drama, $fw-drama-bold);
     font-size: 2.1rem;
+}
+
+
+
+
+.text-prose-light {
+    @include font($text-prose, $fw-prose-light);
+}
+
+.text-prose-semibold {
+    @include font($text-prose, $fw-prose-semibold);
+}
+
+.text-drama {
+    @include font($text-drama, $fw-drama-regular);
+}
+
+.text-drama-bold {
+    @include font($text-drama, $fw-drama-bold);
+}
+
+.text-epic {
+    @include font($text-epic, $fw-epic-regular);
+}
+
+.text-slider-headline {
+    @include font($text-epic, $fw-epic-regular);
+    font-size: 9.0rem;
+    position: relative;
+    display: inline-block;
+    text-transform: none;
+    // text-decoration: underline;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%; // Adjust this value as needed to control the distance of the border
+        margin-top: -12px; // Moves the border up by ?px
+        border-bottom: 2px solid #fff;
+    }
+}
+
+.text-slider-tagline {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 2.7rem;
+    text-transform: uppercase;
+}
+
+.text-card-headline {
+    @include font($text-epic, $fw-epic-regular);
+    font-size: 6.9rem;
+    text-transform: none;
+}
+
+.text-card-tagline {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 2.4rem;
+    text-transform: uppercase;
 }
 
 

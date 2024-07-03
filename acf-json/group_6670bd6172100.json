@@ -230,6 +230,27 @@
                                     "parent_repeater": "field_667119598e437"
                                 },
                                 {
+                                    "key": "field_6685110e70bb6",
+                                    "label": "Card Tagline",
+                                    "name": "card_tagline",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 3,
+                                    "placeholder": "",
+                                    "new_lines": "br",
+                                    "parent_repeater": "field_667119598e437"
+                                },
+                                {
                                     "key": "field_66711a158e43a",
                                     "label": "Card Subtitle",
                                     "name": "card_subtitle",
@@ -457,5 +478,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719304427
+    "modified": 1719996700
 }

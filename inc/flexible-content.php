@@ -139,32 +139,32 @@ elseif( get_row_layout() == 'cards' ):
                     <div>
 
 
+                        <?php
+                        // Determine any variable that might change based on the condition
+                        $image_url = $card_image_url; // Default thumbnail to the standard image URL
+                        if ($card_columns == '3_col' || $card_columns == '4_col') {
+                            $image_url = $card_image_url_43; // Use the 4:3 thumbnails for 3 or 4 columns
+                        }
+                        ?>
                         <div class="position-relative text-start" style="position: relative;">
-                            <?php if( $card_columns == '2_col' ) : ?>
-                            <h2 class="position-absolute text-above-image m-4 text-white">Text for 2 Columns</h2>
-                            <img src="<?php echo $card_image_url; ?>" class="img-fluid img-darken" alt="<?php echo $card_image_alt; ?>">
-                            <?php elseif( $card_columns == '3_col' ) : ?>
-                            <h2 class="position-absolute text-above-image m-4 text-white">Text for 3 Columns</h2>
-                            <img src="<?php echo $card_image_url_43; ?>" class="img-fluid img-darken" alt="<?php echo $card_image_alt; ?>">
-                            <?php elseif( $card_columns == '4_col' ) : ?>
-                            <h2 class="position-absolute text-above-image m-4 text-white">Text for 4 Columns</h2>
-                            <img src="<?php echo $card_image_url_43; ?>" class="img-fluid img-darken" alt="<?php echo $card_image_alt; ?>">
-                            <?php endif; ?>
+                            <div class="position-absolute text-above-image text-card-headline text-white m-4"><?php echo $card_headline; ?></div>
+                            <img src="<?php echo $image_url; ?>" class="img-fluid img-darken" alt="<?php echo $card_image_alt; ?>">
                         </div>
 
 
-                        <div class="p-5 bg-dark">
+                        <div class="pt-4 pb-3 px-5 bg-dark text-center">
+
+                            <?php 
+                            $card_tagline = get_sub_field('card_tagline');
+                            if( $card_tagline ):
+                            ?>
                             <div class="pb-1">
-                                <?php if( $card_columns == '2_col' ) : ?>
-                                <h3 class="text-white"><?php echo $card_headline; ?></h3>
-                                <?php elseif( $card_columns == '3_col' ) : ?>
-                                <h3 class="text-white"><?php echo $card_headline; ?></h3>
-                                <?php elseif( $card_columns == '4_col' ) : ?>
-                                <h3 class="text-white"><?php echo $card_headline; ?></h3>
-                                <?php endif; ?>
+                                <div class="text-card-tagline text-white"><?php echo $card_tagline; ?></div>
                             </div>
+                            <?php endif; ?>
+
                             <?php if( $card_subtitle ):  ?>
-                            <div class="fs-3 text-white pb-4">
+                            <div class="fs-3 text-white mb-4">
                                 <?php echo $card_subtitle; ?>
                             </div>
                             <?php endif; ?>
@@ -257,12 +257,18 @@ elseif( get_row_layout() == 'slider' ):
                 <div class="container">
                     <div class="swiper-slide-content" style="background: rgba(0,0,0,0.1);">
                         <div class="position-relative text-start" style="position: relative;">
-                            <?php if ($headline): ?><h2 class="text-white"><?php echo esc_html($headline); ?></h2><?php endif; ?>
-                            <?php if ($tagline): ?><p class="text-white"><?php echo esc_html($tagline); ?></p><?php endif; ?>
+                            <?php if ($headline): ?><h2 class="text-slider-headline text-white"><?php echo esc_html($headline); ?></h2><?php endif; ?>
+                            <?php if ($tagline): ?><div class="text-slider-tagline text-white mb-3"><?php echo esc_html($tagline); ?></div><?php endif; ?>
 
                             <?php if (get_sub_field('display_logo')) : ?>
-                            <img src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint mb-3" alt="">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint mb-5" alt="">
                             <?php endif; ?>
+
+                            <div>
+                                <?php if ($link && is_array($link)): ?>
+                                <a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>" class="btn btn-outline-light">Learn More</a>
+                                <?php endif; ?>
+                            </div>
 
                         </div>
                     </div>
