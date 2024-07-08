@@ -25,7 +25,7 @@
         </div>
 
         <!-- bootstrap menu integration -->
-        <nav id="navbar-fx" class="navbar sticky-bottom navbar-expand-sm justify-content-center" data-bs-theme="dark">
+        <nav id="navbar-fx" class="navbar sticky-bottom navbar-expand-lg justify-content-center" data-bs-theme="dark">
 
 
             <div class="container p-0">

@@ -1,11 +1,67 @@
 <?php
-
 // Check value exists.
-if( have_rows('flexible_content') ):
+if( have_rows('flexible_content') ): 
+    $iBlock = 0;
+    $firstContentBlockFound = false;
 
     // Loop through rows.
     while ( have_rows('flexible_content') ) : the_row();
 ?>
+
+
+
+
+
+
+
+
+
+<?php
+/*
+ ██████  ██████  ███    ██ ████████ ███████ ███    ██ ████████
+██      ██    ██ ████   ██    ██    ██      ████   ██    ██
+██      ██    ██ ██ ██  ██    ██    █████   ██ ██  ██    ██
+██      ██    ██ ██  ██ ██    ██    ██      ██  ██ ██    ██
+ ██████  ██████  ██   ████    ██    ███████ ██   ████    ██
+
+
+*/
+// Case: Last layout (ends with endif;).
+if( get_row_layout() == 'content' ): 
+    $headline = get_sub_field('headline');
+    $content = get_sub_field('content');
+    $image = get_sub_field('image');
+    $link = get_sub_field('link');
+    ?>
+
+
+<div id="content-<?php echo $iBlock; ?>" class="container-fluid py-5">
+    <div class="container bg-warning">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div>
+                    <?php if($headline): ?>
+                    <?php if(!$firstContentBlockFound): ?>
+                    <h1><?php echo $headline; ?></h1>
+                    <?php $firstContentBlockFound = true; ?>
+                    <?php else: ?>
+                    <h2 class="text-info"><?php echo $headline; ?></h2>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+                <div>
+                    <?php if($content): echo $content; endif; ?>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                [image]
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
@@ -24,7 +80,7 @@ if( have_rows('flexible_content') ):
              ██       ███████ ██      █████       ██████  ██████  ███████ 
         */
         // Case: Last layout (ends with endif;).
-        if( get_row_layout() == '4_double_&_8_columns' ): 
+        elseif( get_row_layout() == '4_double_&_8_columns' ): 
             $column_order = get_sub_field('column_order');
             $image_4a = get_sub_field('image_4a');
             if ($image_4a) :
@@ -44,31 +100,32 @@ if( have_rows('flexible_content') ):
             ?>
 
 
-
-<div class="container">
-    <div class="row no-gutters">
-        <div class="col-12 col-lg-4 d-flex flex-column justify-content-between <?php if( $column_order == '4_8' ): ?> order-1 <?php elseif( $column_order == '8_4' ): ?> order-2 <?php endif; ?>">
-            <div class="position-relative">
-                <img src="<?php echo $image_4a_url ?>" alt="<?php echo $image_4a_alt ?>" class="img-fluid img-darken">
-                <div class="position-absolute top-50 start-0 translate-middle-y w-100 ps-5 text-start">
-                    <h1 class="text-white">Your Title Here</h1>
-                    <button class="btn btn-outline-light rounded-pill text-uppercase">LEARN&nbsp;MORE</button>
+<div id="4_double_&_8_columns-<?php echo $iBlock; ?>" class="container-fluid py-5">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-4 d-flex flex-column justify-content-between <?php if( $column_order == '4_8' ): ?> order-1 <?php elseif( $column_order == '8_4' ): ?> order-2 <?php endif; ?>">
+                <div class="position-relative">
+                    <img src="<?php echo $image_4a_url ?>" alt="<?php echo $image_4a_alt ?>" class="img-fluid img-darken">
+                    <div class="position-absolute top-50 start-0 translate-middle-y w-100 ps-5 text-start">
+                        <h1 class="text-white">Your Title Here</h1>
+                        <button class="btn btn-outline-light rounded-pill text-uppercase">LEARN&nbsp;MORE</button>
+                    </div>
+                </div>
+                <div class="position-relative">
+                    <img src="<?php echo $image_4b_url ?>" alt="<?php echo $image_4b_alt ?>" class="img-fluid img-darken">
+                    <div class="position-absolute top-50 start-0 translate-middle-y w-100 ps-5 text-start">
+                        <h1 class="text-white">Your Title Here</h1>
+                        <button class="btn btn-outline-light rounded-pill text-uppercase">LEARN&nbsp;MORE</button>
+                    </div>
                 </div>
             </div>
-            <div class="position-relative">
-                <img src="<?php echo $image_4b_url ?>" alt="<?php echo $image_4b_alt ?>" class="img-fluid img-darken">
+            <div class="col-12 col-lg-8 position-relative <?php if( $column_order == '4_8' ): ?> order-2 <?php elseif( $column_order == '8_4' ): ?> order-1 <?php endif; ?>">
+                <img src="<?php echo $image_8_url ?>" alt="<?php echo $image_8_alt ?>" class="img-fluid img-darken">
                 <div class="position-absolute top-50 start-0 translate-middle-y w-100 ps-5 text-start">
                     <h1 class="text-white">Your Title Here</h1>
+                    <h4 class="text-white">Your Text Description</h4>
                     <button class="btn btn-outline-light rounded-pill text-uppercase">LEARN&nbsp;MORE</button>
                 </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-8 position-relative <?php if( $column_order == '4_8' ): ?> order-2 <?php elseif( $column_order == '8_4' ): ?> order-1 <?php endif; ?>">
-            <img src="<?php echo $image_8_url ?>" alt="<?php echo $image_8_alt ?>" class="img-fluid img-darken">
-            <div class="position-absolute top-50 start-0 translate-middle-y w-100 ps-5 text-start">
-                <h1 class="text-white">Your Title Here</h1>
-                <h4 class="text-white">Your Text Description</h4>
-                <button class="btn btn-outline-light rounded-pill text-uppercase">LEARN&nbsp;MORE</button>
             </div>
         </div>
     </div>
@@ -99,7 +156,7 @@ elseif( get_row_layout() == 'cards' ):
     $card_columns = get_sub_field('card_columns');  
 ?>
 
-<div id="cardsBlock-<?php echo $iBlock; ?>" class="container-fluid py-5 border border-0">
+<div id="cards-<?php echo $iBlock; ?>" class="container-fluid py-5 border border-0">
     <div class="container">
 
 
@@ -223,7 +280,7 @@ elseif( get_row_layout() == 'slider' ):
 ?>
 
 <?php if (have_rows('slider_repeater')): ?>
-<div id="block-swiper-adhoc" class="swiper-container">
+<div id="slider-<?php echo $iBlock; ?>" class="swiper-container">
     <div class="swiper-wrapper">
         <?php while (have_rows('slider_repeater')): the_row();
                 $video = get_sub_field('video');
@@ -255,13 +312,13 @@ elseif( get_row_layout() == 'slider' ):
             <?php if ($headline || $tagline): ?>
             <div class="container-fluid" style="position: absolute;">
                 <div class="container">
-                    <div class="swiper-slide-content" style="background: rgba(0,0,0,0.1);">
+                    <div class="swiper-slide-content">
                         <div class="position-relative text-start" style="position: relative;">
                             <?php if ($headline): ?><h2 class="text-slider-headline text-white"><?php echo esc_html($headline); ?></h2><?php endif; ?>
-                            <?php if ($tagline): ?><div class="text-slider-tagline text-white mb-3"><?php echo esc_html($tagline); ?></div><?php endif; ?>
+                            <?php if ($tagline): ?><div class="text-slider-tagline text-white mb-3 d-none d-sm-block"><?php echo esc_html($tagline); ?></div><?php endif; ?>
 
                             <?php if (get_sub_field('display_logo')) : ?>
-                            <img src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint mb-5" alt="">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint mb-5 d-none d-md-block" alt="">
                             <?php endif; ?>
 
                             <div>
@@ -337,11 +394,11 @@ $(document).ready(function() {
 }
 
 .swiper-button-next {
-    right: 10px;
+    right: -3px;
 }
 
 .swiper-button-prev {
-    left: 10px;
+    left: -3px;
 }
 
 /*  ensure that both videos and images within .swiper-slide-cover maintain the 1920x648 aspect ratio while covering the entire container area without losing their aspect ratios. The object-fit: cover; property is used to ensure the video or image covers the area completely, cropping it if necessary to maintain the aspect ratio. */
@@ -387,13 +444,13 @@ $(document).ready(function() {
 
 
 
-<?php
-            // End cases
-        endif;
-
+<?php 
+// Ends the last case if/elseif/
+endif;
+// End C A S E S
+        $iBlock++;
     // End loop.
     endwhile;
-
 // No value.
 else :
     // Do something...

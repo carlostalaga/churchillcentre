@@ -86,6 +86,31 @@ h6 {
     font-size: 2.1rem;
 }
 
+@media (max-width: 992px) {
+    h1 {
+        font-size: calc(4.5rem * 0.85);
+    }
+
+    h2 {
+        font-size: calc(3.9rem * 0.85);
+    }
+
+    h3 {
+        font-size: calc(2.7rem * 0.85);
+    }
+
+    h4 {
+        font-size: calc(2.7rem * 0.85);
+    }
+
+    h5 {
+        font-size: calc(2.4rem * 0.85);
+    }
+
+    h6 {
+        font-size: calc(2.1rem * 0.85);
+    }
+}
 
 
 
@@ -146,7 +171,19 @@ h6 {
     text-transform: uppercase;
 }
 
+@media (max-width: 992px) {
+    .text-slider-headline {
+        font-size: calc(9.0rem * 0.55);
+    }
 
+    .text-slider-tagline {
+        font-size: calc(2.7rem * 0.55);
+    }
+
+    .text-card-headline {
+        font-size: calc(6.9rem * 0.85);
+    }
+}
 
 
 
