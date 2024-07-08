@@ -10,6 +10,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
+
     <header class="bg-black">
 
         <div class="container-fluid bg-white">
