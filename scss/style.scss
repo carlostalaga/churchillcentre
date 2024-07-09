@@ -277,6 +277,32 @@ html {
     text-transform: uppercase
 }
 
+.btn-outline-dark .active {
+    @include font($text-drama, $fw-drama-bold);
+    font-size: 1.6rem;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 6px 18px 3px 18px;
+    text-transform: uppercase
+}
+
+
+/*
+██████  ██ ██████  ███████  ██████ ████████  ██████  ██████  ██    ██
+██   ██ ██ ██   ██ ██      ██         ██    ██    ██ ██   ██  ██  ██
+██   ██ ██ ██████  █████   ██         ██    ██    ██ ██████    ████
+██   ██ ██ ██   ██ ██      ██         ██    ██    ██ ██   ██    ██
+██████  ██ ██   ██ ███████  ██████    ██     ██████  ██   ██    ██
+
+
+*/
+.section-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
 
 /*
  ██████  █████  ██████  ██████  ███████
@@ -288,8 +314,11 @@ html {
 
 */
 .img-darken {
-    filter: brightness(88%);
-    /* Decrease brightness to 88%, approximating a 12% darkening effect */
+    filter: brightness(96%);
+}
+
+.img-card-rounded {
+    border-top-left-radius: 1.5rem;
 }
 
 .text-above-image {

@@ -249,6 +249,26 @@
                             "preview_size": "medium"
                         },
                         {
+                            "key": "field_668cba47b17c7",
+                            "label": "Image Rounded",
+                            "name": "image_rounded",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Size 576px by 576px",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui_on_text": "Yes",
+                            "ui_off_text": "No",
+                            "ui": 1
+                        },
+                        {
                             "key": "field_6685ed5fe2cff",
                             "label": "Link",
                             "name": "link",
@@ -569,5 +589,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720053311
+    "modified": 1720499417
 }

@@ -26,15 +26,53 @@ Template Name: Directory Page
     */
     ?>
 
-    <div class="container-fluid">
-        <div class="container">
-            <div>
+    <div class="container-fluid py-5 bg-danger">
+
+        <div class="container px-5 px-md-0 ">
+            <div class="d-md-none">
                 <?php echo do_shortcode( '[searchandfilter id="91"]' ) ?>
             </div>
         </div>
+
+        <div class="container bg-warning my-5 px-5 px-md-0 d-none d-md-block">
+
+            <?php
+            // Get the current section from the URL
+            $current_section = isset($_GET['_sft_section']) ? sanitize_text_field($_GET['_sft_section']) : '';
+
+            // Get all terms in the custom taxonomy 'section'
+            $terms = get_terms(array(
+                'taxonomy' => 'section',
+                'hide_empty' => false, // Change to true if you want to hide empty terms
+            ));
+
+            // Check if there are any terms
+            if (!empty($terms) && !is_wp_error($terms)) {
+                echo '<div class="section-buttons">';
+                foreach ($terms as $term) {
+                    $term_name = $term->name;
+                    $term_slug = $term->slug;
+                    $url = get_site_url() . '/directory/?_sft_section=' . $term_slug;
+                    // Check if the current term slug matches the current section
+                    $active_class = ($term_slug == $current_section) ? 'active' : '';
+                    ?>
+            <a href="<?php echo esc_url($url); ?>">
+                <button class="btn btn-outline-dark rounded-pill text-uppercase <?php echo esc_attr($active_class); ?>"><?php echo esc_html($term_name); ?></button>
+            </a>
+            <?php
+                }
+                echo '</div>';
+            } else {
+                echo 'No terms found or an error occurred.';
+            }
+            ?>
+
+        </div>
+
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid bg-info">
+
         <div class="container">
             <div class="row row-cols-md-2 row-cols-lg-3 g-5 d-flex justify-content-center">
                 <?php
@@ -92,7 +130,7 @@ Template Name: Directory Page
     </div>
 
     <!-- Pagination -->
-    <div class="container-fluid">
+    <div class="container-fluid bg-light">
         <div class="container my-5 py-5">
             <div class="pagination d-flex justify-content-center">
                 <?php 
@@ -114,6 +152,8 @@ Template Name: Directory Page
             </div>
         </div>
     </div>
+
+
 
 </article>
 

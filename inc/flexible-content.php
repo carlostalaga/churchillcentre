@@ -31,31 +31,56 @@ if( get_row_layout() == 'content' ):
     $headline = get_sub_field('headline');
     $content = get_sub_field('content');
     $image = get_sub_field('image');
+    if($image):
+        $image_url = $image['sizes']['576sm'];
+        $image_alt = $image['alt'];
+    endif;
+    $image_rounded = get_sub_field('image_rounded');
     $link = get_sub_field('link');
     ?>
 
 
-<div id="content-<?php echo $iBlock; ?>" class="container-fluid py-5">
-    <div class="container bg-warning">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div>
+<div id="content-<?php echo $iBlock; ?>" class="container-fluid px-5 px-md-0">
+    <div class="container my-5">
+        <div class="row g-5 py-5">
+
+            <div class="col-12 <?php if($image): ?> col-md-6 <?php else: endif;?>">
+
+                <div class="mb-3">
                     <?php if($headline): ?>
                     <?php if(!$firstContentBlockFound): ?>
                     <h1><?php echo $headline; ?></h1>
                     <?php $firstContentBlockFound = true; ?>
                     <?php else: ?>
-                    <h2 class="text-info"><?php echo $headline; ?></h2>
+                    <h2><?php echo $headline; ?></h2>
                     <?php endif; ?>
                     <?php endif; ?>
                 </div>
-                <div>
+
+                <div class="mb-5">
                     <?php if($content): echo $content; endif; ?>
                 </div>
+
+                <div>
+                    <?php if ($link && is_array($link)): ?>
+
+                    <a href="<?php echo esc_url($link['url']); ?>" <?php echo $link['target'] ? 'target="' . esc_attr($link['target']) . '"' : ''; ?>>
+                        <button class="btn btn-outline-dark rounded-pill text-uppercase"><?php echo esc_html($link['title']); ?></button>
+                    </a>
+
+                    <?php endif; ?>
+                </div>
+
             </div>
-            <div class="col-12 col-md-6">
-                [image]
+
+            <?php if($image): ?>
+            <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
+
+                <img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" class="<?php if ($image_rounded): ?> rounded-circle <?php else: endif;?> img-fluid px-md-5">
+
             </div>
+            <?php endif; ?>
+
         </div>
     </div>
 </div>
@@ -156,7 +181,7 @@ elseif( get_row_layout() == 'cards' ):
     $card_columns = get_sub_field('card_columns');  
 ?>
 
-<div id="cards-<?php echo $iBlock; ?>" class="container-fluid py-5 border border-0">
+<div id="cards-<?php echo $iBlock; ?>" class="container-fluid py-5 border border-0 px-5 px-md-0">
     <div class="container">
 
 
@@ -191,7 +216,7 @@ elseif( get_row_layout() == 'cards' ):
 
             <div class="col">
 
-                <div class="bg-dark h-100">
+                <div class="h-100">
 
                     <div>
 
@@ -205,7 +230,7 @@ elseif( get_row_layout() == 'cards' ):
                         ?>
                         <div class="position-relative text-start" style="position: relative;">
                             <div class="position-absolute text-above-image text-card-headline text-white m-4"><?php echo $card_headline; ?></div>
-                            <img src="<?php echo $image_url; ?>" class="img-fluid img-darken" alt="<?php echo $card_image_alt; ?>">
+                            <img src="<?php echo $image_url; ?>" class="img-fluid img-darken img-card-rounded" alt="<?php echo $card_image_alt; ?>">
                         </div>
 
 
@@ -216,7 +241,11 @@ elseif( get_row_layout() == 'cards' ):
                             if( $card_tagline ):
                             ?>
                             <div class="pb-1">
-                                <div class="text-card-tagline text-white"><?php echo $card_tagline; ?></div>
+                                <div class="text-card-tagline text-white">
+                                    <a class="button text-white" href="<?php echo esc_url( $card_link_url ); ?>" target="<?php echo esc_attr( $card_link_target ); ?>">
+                                        <?php echo $card_tagline; ?>
+                                    </a>
+                                </div>
                             </div>
                             <?php endif; ?>
 
@@ -226,13 +255,6 @@ elseif( get_row_layout() == 'cards' ):
                             </div>
                             <?php endif; ?>
 
-                            <?php if( $card_link): ?>
-                            <div class="w-100">
-                                <a class="button" href="<?php echo esc_url( $card_link_url ); ?>" target="<?php echo esc_attr( $card_link_target ); ?>">
-                                    <button class="btn btn-outline-light rounded-pill text-uppercase">LEARN&nbsp;MORE</button>
-                                </a>
-                            </div>
-                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -313,7 +335,7 @@ elseif( get_row_layout() == 'slider' ):
             <div class="container-fluid" style="position: absolute;">
                 <div class="container">
                     <div class="swiper-slide-content">
-                        <div class="position-relative text-start" style="position: relative;">
+                        <div class="position-relative text-start px-5 px-md-0" style="position: relative;">
                             <?php if ($headline): ?><h2 class="text-slider-headline text-white"><?php echo esc_html($headline); ?></h2><?php endif; ?>
                             <?php if ($tagline): ?><div class="text-slider-tagline text-white mb-3 d-none d-sm-block"><?php echo esc_html($tagline); ?></div><?php endif; ?>
 
