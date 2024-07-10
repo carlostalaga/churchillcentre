@@ -318,16 +318,12 @@ elseif( get_row_layout() == 'slider' ):
         <div class="swiper-slide">
             <div class="swiper-slide-cover">
                 <?php if ($video): ?>
-                <?php if ($link && is_array($link)): ?><a href="<?php echo esc_url($link['url']); ?>" <?php echo $link['target'] ? 'target="' . esc_attr($link['target']) . '"' : ''; ?>><?php endif; ?>
-                    <video playsinline autoplay muted loop>
-                        <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <?php if ($link && is_array($link)): ?></a><?php endif; ?>
+                <video playsinline autoplay muted loop>
+                    <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <?php else: ?>
-                <?php if ($link && is_array($link)): ?><a href="<?php echo esc_url($link['url']); ?>" <?php echo $link['target'] ? 'target="' . esc_attr($link['target']) . '"' : ''; ?>><?php endif; ?>
-                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid">
-                    <?php if ($link && is_array($link)): ?></a><?php endif; ?>
+                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid">
                 <?php endif; ?>
             </div>
 
@@ -345,7 +341,7 @@ elseif( get_row_layout() == 'slider' ):
 
                             <div>
                                 <?php if ($link && is_array($link)): ?>
-                                <a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>" class="btn btn-outline-light">Learn More</a>
+                                <a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>" class="btn btn-outline-light" title="<?php echo esc_attr($link['title']); ?>" aria-label="Learn more about <?php echo esc_attr($link['title']); ?>">Learn More</a>
                                 <?php endif; ?>
                             </div>
 

@@ -5,7 +5,9 @@
             <div class="container py-5">
                 <div class="row row cols-1-row cols-md-2">
                     <div class="col text-start">
-                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-dark.png" class="img-fluid logo-constraint my-3" alt="Churchill Centre">
+                        <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>" aria-label="Go to homepage">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/logo-dark.png" class="img-fluid logo-constraint my-3" alt="<?php echo get_bloginfo('name'); ?> logo">
+                        </a>
                     </div>
                     <div class="col  d-flex justify-content-end align-items-end">
                         <?php social_icons_lightmode(false); ?>
@@ -52,7 +54,7 @@
                         <?php endif; ?>
                     </div>
 
-                    <div id="footer-menu" class="col col-md-6 col-lg-2">
+                    <nav aria-label="Footer primary navigation" id="footer-menu" class="col col-md-6 col-lg-2">
                         <?php /* Super Menu */
                         wp_nav_menu( array(
                             'menu' => 'footer-menu',
@@ -60,7 +62,8 @@
                             'fallback_cb'    => false
                         ) );
                         ?>
-                    </div>
+                    </nav>
+
                     <div class="col col-md-6 col-lg-4">
                         <h6 class="text-white">SUBSCRIBE</h6>
                         <?php 
@@ -75,7 +78,9 @@
                     <div class="col col-md-6 col-lg-4 text-center text-md-start">
                         &copy; <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?>. All rights reserved.
                     </div>
-                    <div id="privacy-menu" class="col col-md-6 col-lg-4 d-flex justify-content-center">
+
+
+                    <nav aria-label="Footer secondary navigation: Privacy" id="privacy-menu" class="col col-md-6 col-lg-4 d-flex justify-content-center">
                         <?php /* Privacy Menu */
                         wp_nav_menu( array(
                             'menu' => 'privacy-menu',
@@ -83,7 +88,8 @@
                             'fallback_cb'    => false,
                         ) );
                         ?>
-                    </div>
+                    </nav>
+
                     <div class="col col-md-6 col-lg-4 text-center text-md-end">
                         <a href="https://envyus.com.au" target="blank" class="text-white">Site by EnvyUs Design</a>
                     </div>

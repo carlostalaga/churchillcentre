@@ -15,7 +15,7 @@
     <header class="bg-black">
 
         <div class="container-fluid bg-white">
-            <div id="super-menu" class="container d-flex  justify-content-end">
+            <nav aria-label="Secondary navigation: Shortcuts" id="super-menu" class="container d-flex  justify-content-end">
                 <?php /* Super Menu */
                 wp_nav_menu( array(
                     'menu' => 'super-menu',
@@ -23,11 +23,11 @@
                     'fallback_cb'    => false
                 ) );
                 ?>
-            </div>
+            </nav>
         </div>
 
         <!-- bootstrap menu integration -->
-        <nav id="navbar-fx" class="navbar sticky-bottom navbar-expand-lg justify-content-center" data-bs-theme="dark">
+        <nav aria-label="Primary navigation" id="navbar-fx" class="navbar sticky-bottom navbar-expand-lg justify-content-center" data-bs-theme="dark">
 
 
             <div class="container p-0">
@@ -35,8 +35,8 @@
                 <div class="row w-100 m-0">
 
                     <div class="col-4">
-                        <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>">
-                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint my-3" alt="">
+                        <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>" aria-label="Go to homepage">
+                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-light.png" class="img-fluid logo-constraint my-3" alt="<?php echo get_bloginfo('name'); ?> logo">
                         </a>
                     </div>
 

@@ -5,17 +5,18 @@ Template Name: Directory Page
 ?>
 
 <?php get_header(); ?>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<main id="main-content" role="main">
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <?php 
+        <?php 
     /* Flexible Content */
     include get_theme_file_path('/inc/flexible-content.php'); 
     ?>
 
-    <?php 
+        <?php 
     /*
     ███████ ███████  █████  ██████   ██████ ██   ██        ██        ███████ ██ ██      ████████ ███████ ██████
     ██      ██      ██   ██ ██   ██ ██      ██   ██        ██        ██      ██ ██         ██    ██      ██   ██
@@ -26,17 +27,17 @@ Template Name: Directory Page
     */
     ?>
 
-    <div class="container-fluid py-5 bg-danger">
+        <div class="container-fluid py-5 bg-danger">
 
-        <div class="container px-5 px-md-0 ">
-            <div class="d-md-none">
-                <?php echo do_shortcode( '[searchandfilter id="91"]' ) ?>
+            <div class="container px-5 px-md-0 ">
+                <div class="d-md-none">
+                    <?php echo do_shortcode( '[searchandfilter id="91"]' ) ?>
+                </div>
             </div>
-        </div>
 
-        <div class="container bg-warning my-5 px-5 px-md-0 d-none d-md-block">
+            <div class="container bg-warning my-5 px-5 px-md-0 d-none d-md-block">
 
-            <?php
+                <?php
             // Get the current section from the URL
             $current_section = isset($_GET['_sft_section']) ? sanitize_text_field($_GET['_sft_section']) : '';
 
@@ -56,10 +57,10 @@ Template Name: Directory Page
                     // Check if the current term slug matches the current section
                     $active_class = ($term_slug == $current_section) ? 'active' : '';
                     ?>
-            <a href="<?php echo esc_url($url); ?>">
-                <button class="btn btn-outline-dark rounded-pill text-uppercase <?php echo esc_attr($active_class); ?>"><?php echo esc_html($term_name); ?></button>
-            </a>
-            <?php
+                <a href="<?php echo esc_url($url); ?>">
+                    <button class="btn btn-outline-dark rounded-pill text-uppercase <?php echo esc_attr($active_class); ?>"><?php echo esc_html($term_name); ?></button>
+                </a>
+                <?php
                 }
                 echo '</div>';
             } else {
@@ -67,15 +68,15 @@ Template Name: Directory Page
             }
             ?>
 
+            </div>
+
         </div>
 
-    </div>
+        <div class="container-fluid bg-info">
 
-    <div class="container-fluid bg-info">
-
-        <div class="container">
-            <div class="row row-cols-md-2 row-cols-lg-3 g-5 d-flex justify-content-center">
-                <?php
+            <div class="container">
+                <div class="row row-cols-md-2 row-cols-lg-3 g-5 d-flex justify-content-center">
+                    <?php
                 $args = array('post_type' => 'store', 'paged' => get_query_var('paged') ? get_query_var('paged') : 1);
                 $args['search_filter_id'] = 91;
                 $stores = new WP_Query($args);
@@ -84,56 +85,56 @@ Template Name: Directory Page
                     while ($stores->have_posts()) {
                         $stores->the_post();
                         ?>
-                <div class="col">
-                    <div class="m-3 ">
+                    <div class="col">
+                        <div class="m-3 ">
 
-                        <div class="card-header-custom text-center text-white pt-3 fosforos d-flex justify-content-center align-items-center">
-                            <h3><?php the_title(); ?></h3>
-                        </div>
+                            <div class="card-header-custom text-center text-white pt-3 fosforos d-flex justify-content-center align-items-center">
+                                <h3><?php the_title(); ?></h3>
+                            </div>
 
-                        <div class="card-body-custom text-center py-5 px-5">
-                            <?php if (has_post_thumbnail()) : ?>
-                            <div class="featured-image pb-5">
-                                <?php the_post_thumbnail('4-3r320', ['class' => 'img-fluid thumb-cool']); ?>
-                            </div>
-                            <?php else : ?>
-                            <div class="featured-image pb-5">
-                                <img src="https://via.placeholder.com/320x240" alt="Placeholder Image" class="img-fluid">
-                            </div>
-                            <?php endif; ?>
-                            <div class="text-start pb-5">
-                                <?php
+                            <div class="card-body-custom text-center py-5 px-5">
+                                <?php if (has_post_thumbnail()) : ?>
+                                <div class="featured-image pb-5">
+                                    <?php the_post_thumbnail('4-3r320', ['class' => 'img-fluid thumb-cool']); ?>
+                                </div>
+                                <?php else : ?>
+                                <div class="featured-image pb-5">
+                                    <img src="https://via.placeholder.com/320x240" alt="Placeholder Image" class="img-fluid">
+                                </div>
+                                <?php endif; ?>
+                                <div class="text-start pb-5">
+                                    <?php
                                     if ( get_the_content() ) {
                                         echo get_excerpt(102, 'content');
                                     } else {
                                         echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
                                     }
                                 ?>
-                            </div>
-                            <div class="w-100">
-                                <a class="btn btn-dark" href="<?php echo esc_url( get_permalink() ); ?>">
-                                    LEARN&nbsp;MORE
-                                </a>
+                                </div>
+                                <div class="w-100">
+                                    <a class="btn btn-dark" href="<?php echo esc_url( get_permalink() ); ?>">
+                                        LEARN&nbsp;MORE
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <?php
+                    <?php
                     }
                     wp_reset_postdata();
                 } else {
                     echo '<p>No stores found.</p>';
                 }
                 ?>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Pagination -->
-    <div class="container-fluid bg-light">
-        <div class="container my-5 py-5">
-            <div class="pagination d-flex justify-content-center">
-                <?php 
+        <!-- Pagination -->
+        <div class="container-fluid bg-light">
+            <div class="container my-5 py-5">
+                <div class="pagination d-flex justify-content-center">
+                    <?php 
                 echo paginate_links(array(
                     'total' => $stores->max_num_pages,
                     'current' => max(1, get_query_var('paged')),
@@ -149,14 +150,15 @@ Template Name: Directory Page
                     'add_fragment' => '',
                 ));
                 ?>
+                </div>
             </div>
         </div>
-    </div>
 
 
 
-</article>
+    </article>
 
 
-<?php endwhile; endif; ?>
+    <?php endwhile; endif; ?>
+</main>
 <?php get_footer(); ?>

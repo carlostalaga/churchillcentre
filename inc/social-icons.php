@@ -29,32 +29,40 @@
  * social_icons_lightmode(false, false);
  */
 function social_icons_lightmode($lightmode = true, $is_option_page = true) {
+    // Determine the CSS class based on the lightmode parameter
     $mode_id = $lightmode ? 'social-icons-lightmode' : 'social-icons-darkmode';
+    
+    // Define an array of social media platforms with their respective icons, URL prefixes, and display names
     $social_icons = [
-        'mail' => ['icon' => 'fa-solid fa-envelope', 'prefix' => 'mailto:'],
-        'facebook' => ['icon' => 'fa-brands fa-facebook-f', 'prefix' => ''],
-        'twitter' => ['icon' => 'fa-brands fa-twitter', 'prefix' => ''],
-        'instagram' => ['icon' => 'fa-brands fa-instagram', 'prefix' => ''],
-        'linkedin' => ['icon' => 'fa-brands fa-linkedin-in', 'prefix' => '']
+        'mail' => ['icon' => 'fa-solid fa-envelope', 'prefix' => 'mailto:', 'name' => 'Email'],
+        'facebook' => ['icon' => 'fa-brands fa-facebook-f', 'prefix' => '', 'name' => 'Facebook'],
+        'twitter' => ['icon' => 'fa-brands fa-twitter', 'prefix' => '', 'name' => 'Twitter'],
+        'instagram' => ['icon' => 'fa-brands fa-instagram', 'prefix' => '', 'name' => 'Instagram'],
+        'linkedin' => ['icon' => 'fa-brands fa-linkedin-in', 'prefix' => '', 'name' => 'LinkedIn']
     ];
     ?>
-<div id="<?php echo esc_attr($mode_id); ?>" class="d-flex">
-    <?php /*
-     * Loop through the $social_icons array and retrieve the corresponding field value using get_field() function.
-     * If the field value exists, execute the code block inside the if statement.
-    */ ?>
+<div id="<?php echo esc_attr($mode_id); ?>" class="d-flex flex-wrap">
     <?php foreach ($social_icons as $key => $value): ?>
     <?php 
-        // Use the $is_option_page parameter to determine how to call get_field()
-        $field = $is_option_page ? get_field($key, 'option') : get_field($key);
-        // Expecting $field to be an array with 'url' and 'target' keys
-        $url = isset($field['url']) ? $field['url'] : '';
-        $target = isset($field['target']) ? $field['target'] : '_blank';
-    ?>
-    <?php if ($url): ?>
-    <?php /* for full control on target replace _blank with <?php echo esc_attr($target); ?> */ ?>
-    <a target="_blank " class="text-light" href="<?php echo esc_url($value['prefix'] . $url); ?>">
-        <i class="<?php echo esc_attr($value['icon']); ?> ms-2" aria-hidden="true"></i>
+            // Retrieve the ACF field value based on whether it's an option page or not
+            $field = $is_option_page ? get_field($key, 'option') : get_field($key);
+            
+            // Extract URL, title, and target from the ACF link field
+            $url = isset($field['url']) ? $field['url'] : '';
+            $title = isset($field['title']) ? $field['title'] : $value['name'];
+            $target = isset($field['target']) ? $field['target'] : '_blank';
+            
+            // Only display the icon if a URL is provided
+            if ($url): 
+            ?>
+    <a target="_blank" class="text-light me-2 mb-2" href="<?php echo esc_url($value['prefix'] . $url); ?>" title="<?php echo esc_attr($title); ?>" aria-label="Go to <?php 
+        if ($is_option_page) {
+            echo esc_attr(get_bloginfo('name'));
+        } else {
+            echo esc_attr(get_the_title());
+        }
+    ?> <?php echo esc_attr($value['name']); ?>">
+        <i class="<?php echo esc_attr($value['icon']); ?>" aria-hidden="true"></i>
     </a>&nbsp;
     <?php endif; ?>
     <?php endforeach; ?>
