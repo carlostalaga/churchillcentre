@@ -47,7 +47,7 @@ function social_icons_lightmode($lightmode = true, $is_option_page = true) {
             // Retrieve the ACF field value based on whether it's an option page or not
             $field = $is_option_page ? get_field($key, 'option') : get_field($key);
             
-            // Extract URL, title, and target from the ACF link field
+            // Extract URL, title, and target from the ACF link field 
             $url = isset($field['url']) ? $field['url'] : '';
             $title = isset($field['title']) ? $field['title'] : $value['name'];
             $target = isset($field['target']) ? $field['target'] : '_blank';
@@ -55,7 +55,7 @@ function social_icons_lightmode($lightmode = true, $is_option_page = true) {
             // Only display the icon if a URL is provided
             if ($url): 
             ?>
-    <a target="_blank" class="text-light me-2 mb-2" href="<?php echo esc_url($value['prefix'] . $url); ?>" title="<?php echo esc_attr($title); ?>" aria-label="Go to <?php 
+    <a target="<?php echo esc_attr($target); ?>" class="text-light me-2 mb-2" href="<?php echo esc_url($value['prefix'] . $url); ?>" title="<?php echo esc_attr($title); ?>" aria-label="Go to <?php 
         if ($is_option_page) {
             echo esc_attr(get_bloginfo('name'));
         } else {
