@@ -27,15 +27,15 @@ Template Name: Directory Page
     */
     ?>
 
-        <div class="container-fluid py-5 bg-danger">
+        <div class="container-fluid py-5">
 
             <div class="container px-5 px-md-0 ">
-                <div class="d-md-none">
+                <div>
                     <?php echo do_shortcode( '[searchandfilter id="91"]' ) ?>
                 </div>
             </div>
 
-            <div class="container bg-warning my-5 px-5 px-md-0 d-none d-md-block">
+            <div class="container my-5 px-5 px-md-0 d-none d-md-block">
 
                 <?php
             // Get the current section from the URL
@@ -72,7 +72,7 @@ Template Name: Directory Page
 
         </div>
 
-        <div class="container-fluid bg-info">
+        <div class="container-fluid">
 
             <div class="container">
                 <div class="row row-cols-md-2 row-cols-lg-3 g-5 d-flex justify-content-center">
@@ -95,11 +95,11 @@ Template Name: Directory Page
                             <div class="card-body-custom text-center py-5 px-5">
                                 <?php if (has_post_thumbnail()) : ?>
                                 <div class="featured-image pb-5">
-                                    <?php the_post_thumbnail('4-3r320', ['class' => 'img-fluid thumb-cool']); ?>
+                                    <?php the_post_thumbnail('medium', ['class' => 'img-fluid thumb-cool']); ?>
                                 </div>
                                 <?php else : ?>
                                 <div class="featured-image pb-5">
-                                    <img src="https://via.placeholder.com/320x240" alt="Placeholder Image" class="img-fluid">
+                                    <img src="https://via.placeholder.com/320x320" alt="Placeholder Image" class="img-fluid">
                                 </div>
                                 <?php endif; ?>
                                 <div class="text-start pb-5">

@@ -306,6 +306,10 @@ function custom_thumbs()
         'center',
         'center'
     ));
+    add_image_size('320xs', 320, 320, array(
+        'center',
+        'center'        
+    ));
     add_image_size('4-3r320', 320, 240, array(
         'center',
         'center'        
